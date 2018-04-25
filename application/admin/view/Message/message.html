@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>评论 - Babysbreath博客管理系统</title>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__admin/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__admin/css/style.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__admin/css/font-awesome.min.css">
+<link rel="apple-touch-icon-precomposed" href="__PUBLIC__admin/images/icon/icon.png">
+<link rel="shortcut icon" href="__PUBLIC__admin/images/icon/favicon.ico">
+<script src="__PUBLIC__admin/js/jquery-2.1.4.min.js"></script>
+</head>
+
+<body class="user-select">
+<section class="container-fluid">
+  {include file="Public/header"}
+  <div class="row">
+  {include file="Public/aside"}
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-lg-10 col-md-offset-2 main" id="main">
+      <form action="" method="post">
+        <h1 class="page-header">管理 <span class="badge">{$mCount}</span></h1>
+        <div class="table-responsive" id="responsive">
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th width="80px"><span class="glyphicon glyphicon-th-large"></span> <span class="visible-lg">选择</span></th>
+                <th><span class="glyphicon glyphicon-file"></span> <span class="visible-lg">留言内容</span></th>
+                <th width="400px"><span class="glyphicon glyphicon-time"></span> <span class="visible-lg">留言人</span></th>
+                <th width="180px"><span class="glyphicon glyphicon-time"></span> <span class="visible-lg">日期</span></th>
+                <th width="180px"><span class="glyphicon glyphicon-pencil"></span> <span class="visible-lg">操作</span></th>
+              </tr>
+            </thead>
+            <tbody>
+             {volist name="message" id="m"}
+              <tr id="mid_{$m.messageId}">
+                <td><input type="checkbox" class="input-control" id="commentid" name="checkbox[]" value="{$m.messageId}" />{$m.messageId}
+                </td>
+                <td class="article-title">
+                	<?php echo mb_strlen( $m['messageContent'] , 'utf-8' ) > 40 ? mb_substr( $m['messageContent'] , 0 , 40 , 'utf-8' ) . '...' : $m['messageContent']; ?>
+                </td>
+                <td class="article-title">{$m.userName}</td>
+                <td>{$m.addTime}</td>
+                <td><a id="seeComment" href="javascript:;" onClick="seeComment({$m.messageId})">
+                	<i class="fa fa-eye"></i> 查看　</a>　
+                	<a id="del" href="javascript:;" onClick="delComment({$m.messageId})">
+	                	<i class="fa fa-trash-o"></i> 删除　</a>
+                </td>
+              </tr>
+             {/volist}
+              <tr  height="80px"><td colspan="6"><div class="pagelist">{$message->render()}</div></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <footer class="message_footer">
+          <nav>
+            <div style="margin-top: -68px;" class="btn-toolbar operation" role="toolbar">
+              <div class="btn-group" role="group"> <a class="btn btn-default" onClick="select()">全选</a> <a class="btn btn-default" onClick="reverse()">反选</a> <a class="btn btn-default" onClick="noselect()">不选</a> </div>
+              <div class="btn-group" role="group">
+                <button type="submit" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="删除全部选中" name="checkbox_delete">删除</button>
+              </div>
+            </div>
+          </nav>
+        </footer>
+      </form>
+    </div>
+  </div>
+</section>
+<div class="modal fade" id="comment" tabindex="-1" role="dialog" aria-labelledby="commentModalLabel" aria-hidden="true">
+	<div class="modal-dialog" style="width: 1000px;">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">×
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					查看留言
+				</h4>
+			</div>
+			<div class="modal-body" id='commentBody'>
+	          <table class="table table-striped table-hover">
+	            <tbody>
+	              <tr>
+	                <td width="100px">留言内容:</td>
+	                <td class="article-title"><p id="cmContent"></p></td>
+	              </tr>
+	              <tr>
+	                <td>留言人:</td>
+	                <td class="article-title" id="cmAtor"></td>
+	              </tr>
+	              <tr>
+	                <td>日　　期:</td>
+	                <td class="article-title" id="cmDate"></td>
+	              </tr>
+	            </tbody>
+	          </table>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default"
+						data-dismiss="modal">关闭
+				</button>
+<!-- 				<button type="button" class="btn btn-primary">
+					提交更改
+				</button> -->
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" id="delcomment" tabindex="-1" role="dialog" aria-labelledby="commentModalLabel" aria-hidden="true">
+	<div class="modal-dialog" style="width: 400px;">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" id="closeX" data-dismiss="modal" aria-hidden="true">×
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					删除留言
+				</h4>
+			</div>
+			<div class="modal-body" id='delCommentBody'>
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" id="close" data-dismiss="modal" >关闭
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!--查看评论模态框-->
+<!--个人信息模态框-->
+  {include file="Public/info"}
+<!--个人登录记录模态框-->
+  {include file="Public/loginRecord"}
+<!--微信二维码模态框-->
+  {include file="Public/wechat"}
+<!--提示模态框-->
+  {include file="Public/prompt"}
+<script src="__PUBLIC__admin/js/bootstrap.min.js"></script>
+<script src="__PUBLIC__admin/js/admin-scripts.js"></script>
+<script>
+//查看评论
+function seeComment(messageId) {
+		/*	post提交( 提交的地址，提交的数据，接受返回信息 )	*/
+		$.post('__URL__/seeMessage',{'messageId':messageId},function(data){
+			var d = JSON.parse(data);/*	 JSON.parse 解析JSON字符串 。将一个 JSON 字符串转换为对象。 */
+			if(d.code == 1){
+				$('#cmContent').html(d.message.messageContent);
+				$('#cmAtor').html(d.message.userName);
+				$('#cmDate').html(d.message.addTime);
+				$('#comment').modal('show');
+			}else{
+				$('#cmContent').remove();
+				$('#cmAtor').remove();
+				$('#cmDate').remove();
+				$('#commentBody').html(d.message);
+				$('#comment').modal('show');
+			}
+		})
+        return false;
+}
+
+//删除评论
+function delComment(messageId){
+	var c = confirm('确定要删除此留言吗?');
+	if(c == true){
+		$.post('__URL__/delmessage',{'messageId':messageId},function(data){
+			var d = JSON.parse(data);
+			if(d.code == 1){
+				$('#delCommentBody').html(d.message);
+				$('#delcomment').modal('show');
+				$('#mid_'+messageId).remove();
+			}else{
+				$('#delCommentBody').html(d.message);
+				$('#delcomment').modal('show');
+			}
+		});
+	}
+    return false;
+}
+</script>
+<script>
+function loginInfo(aid){
+	$.get('__URL__/info',{'adminId':aid},function(data){
+		var d = JSON.parse(data);
+		document.getElementById('adminId').value = aid;
+		document.getElementById('adminName').value = d.adminName;
+		document.getElementById('loginName').value = d.loginName;
+		document.getElementById('infoContactNumber').value = d.contactNumber;
+	});
+}
+
+function submitInfo(){
+	var aAdmId = $('#adminId').val();
+	var aAdmName = $('#adminName').val();
+	var aLogName = $('#loginName').val();
+	var aCttNum = $('#infoContactNumber').val();
+	var aAdmPwd = $('#oldPassword').val();
+	var aLogPwd = $('#loginPassword').val();
+	var aNewPwd = $('#newPassword').val();
+
+	var phoneReg = /(^1[3|4|5|7|8]\d{9}$)|(^09\d{8}$)/;
+	//电话
+	var phone = $.trim(aCttNum);
+	if (!phoneReg.test(phone)) {
+	  alert('请输入有效的手机号码！');
+	  return false;
+	}
+
+	if(aAdmPwd != '' && aLogPwd != '' && aNewPwd != '' && aLogPwd == aNewPwd){
+		$.post('__URL__/info',{'adminId':aAdmId,'adminName':aAdmName,'loginName':aLogName,'contactNumber':aCttNum,'oldPassword':aAdmPwd,'loginPassword':aLogPwd,'newPassword':aNewPwd},function(info){
+			var d = JSON.parse(info);
+			if(d.code == 1){
+				$('#adminModalLabel').html('信息提示');
+				$('#upAdminBody').html(d.message);
+				$('#upadmin').modal('show');
+				$('#seeUserInfo').modal('hide');
+				setTimeout('location.href = "{:url(\'admin/Login/login\')}";',2000);
+			}
+		});
+	}else if(aAdmPwd == '' || aLogPwd == '' && aNewPwd == ''){
+		$.post('__URL__/info',{'adminId':aAdmId,'adminName':aAdmName,'loginName':aLogName,'contactNumber':aCttNum,'oldPassword':0,'loginPassword':0,'newPassword':0},function(info){
+			var d = JSON.parse(info);
+			if(d.code == 1){
+				$('#adminModalLabel').html('信息提示');
+				$('#upAdminBody').html(d.message);
+				$('#upadmin').modal('show');
+				$('#seeUserInfo').modal('hide');
+				setTimeout('location.href = "{:url(\'admin/Login/login\')}";',2000);
+			}
+		});
+	}else{
+   	  alert('密码错误!');
+   	  return false;
+	}
+}
+</script>
+</body>
+</html>

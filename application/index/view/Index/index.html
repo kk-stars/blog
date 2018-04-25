@@ -1,0 +1,188 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>{$conf.title} - 首页</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+  <link rel="icon" type="image/png" href="__PUBLIC__index/assets/i/logo.png">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="__PUBLIC__index/assets/i/logo.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+  <link rel="apple-touch-icon-precomposed" href="__PUBLIC__index/assets/i/logo.png">
+  <meta name="msapplication-TileImage" content="__PUBLIC__index/assets/i/logo.png">
+  <meta name="msapplication-TileColor" content="#0e90d2">
+  <link rel="stylesheet" href="__PUBLIC__index/assets/css/amazeui.min.css">
+  <link rel="stylesheet" href="__PUBLIC__index/assets/css/app.css">
+  <link rel="stylesheet" href="__PUBLIC__index/my/my.css">
+  <link href="__PUBLIC__index/img/bootstrap.min.css" rel="stylesheet">
+  <link href="__PUBLIC__index/img/font-awesome.min.css" rel="stylesheet">
+<script src="__PUBLIC__index/assets/js/ajax.js"></script>
+<script>
+	window.onload = function(){
+		var aDiv = document.getElementById('div2');/* 获取ID div2  */
+		var oArticle = document.getElementsByTagName('article');/* 获取所有的article  */
+		var aLen = oArticle.length;
+		var aPage = 1;/* page页数  */
+		var b = true;
+
+		getArticle();
+
+		function getArticle(){
+			ajax('get','__URL__/flow','page=' + aPage,function(data){
+				var d = JSON.parse(data);
+
+		    	if(!d.data.length){
+		    		var loadDiv = document.getElementById('loadDiv');
+		    		var loadInfo = document.getElementById('loadMore');
+		    		loadInfo.remove();
+
+		    		var infoP = document.createElement('p');
+		    		infoP.innerText = '数据已全部加载完!';
+		    		loadDiv.appendChild( infoP );
+
+		    		//loadInfo.innerText = ;
+		    		return ;//没有数据了
+		    	}
+
+				for(var i = 0; i < d.data.length; i++){
+
+					var ac = d.data[i].articleContent;
+
+					var content = ac.replace(/<[^>]+>/g,"");//清除html标签
+					//alert(content);return false;
+
+
+					var strs={};
+
+					strs.GetLength = function(str){
+					    var realLength = 0;
+					    var len = str.length;
+					    var charCode = -1;
+					    for(var i=0;i<len;i++){
+					          charCode = str.charCodeAt(i);
+					          if(charCode>0 && charCode<=128) realLength +=1;
+					         else realLength += 2;
+					    }
+					    return realLength;
+					}
+					strs.CutStr = function(str,len){
+						var strLen = str.length;
+				       	var char_length = 0;
+				       	for (var j = 0; j < strLen; j++){
+						    var son_str = str.charCodeAt(j);
+						    (son_str > 0 && son_str <= 128) ? char_length += 1 : char_length += 2;
+						     if (char_length >= len){
+				        		newStr = str.substr(0, j+1) + "…";
+				        		return newStr;
+				    		}
+				      	}
+					}
+					if(strs.GetLength(content) > 340){
+						var contt = strs.CutStr(content,340);//内容
+					}else{
+						var contt = content;
+					}
+
+					if(strs.GetLength(d.data[i].articleTitle) > 70){
+						var articleTitle = strs.CutStr(d.data[i].articleTitle,70);//标题
+					}else{
+						var articleTitle = d.data[i].articleTitle;
+					}
+
+					var aid = d.data[i].articleId;
+					var url = "article" + "?aid=" + aid;
+
+					var cid = d.data[i].cateId;
+					var cUrl = "cate" + "?cid=" + cid;
+
+					if(d.data[i].praiseClicks == '' || d.data[i].praiseClicks === null){
+						d.data[i].praiseClicks = 0;
+					}
+
+					if(d.data[i].articleClicks == '' || d.data[i].articleClicks === null){
+						d.data[i].articleClicks = 0;
+					}
+
+					//alert(aid);return false;
+					var htmlcode = "<article class='am-g blog-entry-article' id='my-art'><h1 style='padding-left: 18px;font-size:1.17em;letter-spacing:1px;margin-bottom: 0;'><a href='" + url + "' id='articleTitle_" + d.data[i].articleId + "'>" + articleTitle + "</a></h1><div class='am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-img' style='width:340px;'><a href='" + url + "' id='aPicHref_" + d.data[i].articleId + "'><img id='articlePic' src='__PUBLIC__" + d.data[i].articlePic + "' title='" + d.data[i].articleTitle + "' alt='' class='am-u-sm-12' style='cursor:pointer;    padding-top: 1rem;' /></a><p id='p-bottom'><span id='cateName' style='color:#10D07A;'><i class='am-icon-navicon'></i> <a href='" + cUrl + "'>" + d.data[i].cateName + "</a></span> &nbsp;&nbsp;<span id='userName'><i class='am-icon-at'></i> " + d.data[i].userName + "</span> &nbsp;&nbsp;<span id='addTime'><i class='am-icon-clock-o'></i> " + d.data[i].addTime.substr(0,10) + "</span> &nbsp;&nbsp;<span><i class='am-icon-heart' style='color:#ef6464;'> </i>&nbsp;" + d.data[i].praiseClicks + "</span> &nbsp;&nbsp;<span><i class='am-icon-eye'> </i>&nbsp;" + d.data[i].articleClicks + "</span> &nbsp;&nbsp;<a href='" + url + "' style='float:right;color:#10D07A;'>阅读原文>></a></p></div><div style='width:414px;color:#888;font-size: 14px;    padding: 10px;letter-spacing:2px;' class='am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-text' id='div-p-content'><p id='articleContent'>" + contt + "</p></div>";
+		            aDiv.innerHTML += htmlcode;//循环加载数据
+
+		    		var aid = d.data[i].articleId;
+		    		$('#aPicHref_' + d.data[i].articleId).click(function(){
+		    			$.post('__URL__/article',{'clickAid' : aid});
+		    		});
+				}
+				b = true;
+           	});
+		}
+
+		var loadMore = document.getElementById('loadMore');//点击加载
+		loadMore.onclick = function(){
+
+			if(b){
+				b = false;
+				aPage++;
+				getArticle();
+			}
+		}
+	}
+</script>
+<style>
+</style>
+</head>
+
+<body id="blog">
+
+<!-- nav start -->
+{include file="public/nav"}
+
+<!-- nav end -->
+<!-- banner start -->
+<div class="am-g am-g-fixed blog-fixed am-u-sm-centered blog-article-margin banner-div1">
+	<div>
+	    <div data-am-widget="slider" class="am-slider am-slider-b1 banner-div3" data-am-slider='{&quot;controlNav&quot;:false}'>
+		    <ul class="am-slides">
+			    {volist name="slider" id="s"}
+			      <li class="dis">
+			         <a href="article?aid={$s['articleId']}"><img src='__PUBLIC__{$s.articlePic}' title="{$s.articleTitle}"></a>
+			      </li>
+			    {/volist}
+		    </ul>
+	    </div>
+
+		{include file="Public/info"}
+	</div>
+
+	<!-- content srart -->
+	<div class="am-g" id="div1">
+	    <div class="am-u-sm-12" id="div2">
+
+	    </div>
+		<div id="loadDiv"><a href="javascript:;" id="loadMore">点击加载更多……</a></div>
+	</div>
+	<!-- content end -->
+</div>
+<!-- banner end -->
+
+{include file="Public/backtop"}
+
+{include file="Public/footer"}
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="__PUBLIC__index/assets/js/jquery.min.js"></script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="__PUBLIC__index/assets/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script src="__PUBLIC__index/assets/js/amazeui.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>{$conf.title} - 图片</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+  <link rel="icon" type="image/png" href="__PUBLIC__index/assets/i/logo.png">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="__PUBLIC__index/assets/i/logo.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+  <link rel="apple-touch-icon-precomposed" href="__PUBLIC__index/assets/i/logo.png">
+  <meta name="msapplication-TileImage" content="__PUBLIC__index/assets/i/logo.png">
+  <meta name="msapplication-TileColor" content="#0e90d2">
+  <link rel="stylesheet" href="__PUBLIC__index/assets/css/amazeui.min.css">
+  <link rel="stylesheet" href="__PUBLIC__index/assets/css/app.css">
+  <link rel="stylesheet" href="__PUBLIC__index/my/my.css">
+
+  <!-- 图片查看  start -->
+  <!-- <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script> -->
+  <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script src="__PUBLIC__index/img/bootstrap.min.js"></script>
+  <script src="__PUBLIC__index/img/jquery.magnify.js"></script>
+  <script>
+  $('[data-magnify]').magnify({
+    headToolbar: [
+      'close'
+    ],
+    initMaximized: true
+  });
+
+  </script>
+
+  <link href="__PUBLIC__index/img/bootstrap.min.css" rel="stylesheet">
+  <link href="__PUBLIC__index/img/jquery.magnify.css" rel="stylesheet">
+  <link href="__PUBLIC__index/img/font-awesome.min.css" rel="stylesheet">
+  <!-- 图片查看  end -->
+
+  <script src="__PUBLIC__index/assets/js/ajax.js"></script>
+  <script src="__PUBLIC__index/assets/js/flow.js"></script>
+  <script>
+
+  window.onload = function(){
+  	var uLi = document.getElementById('container');//获取id 为    container
+  	var oLi = uLi.getElementsByTagName('div');//获取div(id = container) 下的div标签
+
+  	var oLiLen = oLi.length;//div(id = container) 下的div的个数
+  	var ipage = 1;//初始页数为  1
+
+  	var b = true; //布尔值
+
+  	getImg();//初始化数据处理
+
+  	function getImg(){
+  		ajax('get','__URL__/flow',"ipage=" + ipage,function(data){
+  			var d = JSON.parse(data);//JSON.parse 解析数据
+  			var dlen = d.data.length;//获取图片个数
+  			if(!dlen){
+  				return ;//数据已全部加载
+  			}
+
+  			for(var i = 0; i <　dlen; i++){
+  				var gs = getShort();//获取高度最短的div
+
+  			    var imgCode = "<a data-magnify='gallery' data-caption='" + '图片' + (i + 1) + "' href='__PUBLIC__" + d.data[i].imgSrc + "'> <img width='200'  src='__PUBLIC__" + d.data[i].imgSrc + "' alt=''> </a>";
+  				oLi[gs].innerHTML += imgCode;//将imgCode添加到 高度最短的图片下
+  			}
+  			b = true;//b 为  true 表示前面数据执行成功
+  		});
+  	}
+
+  	//窗口滚动条  滚动  触发  事件
+  	window.onscroll = function(){
+  		var gsh = getShort();//获取高度最短的div
+  		var iGsh = oLi[gsh];
+  		var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+  		//document.body.scrollTop 与   document.documentElement.scrollTop : 获取当前页面滚动条纵坐标的位置
+
+  		//offsetHeight : 返回的高度是  内容高  + padding + 边框( 不包括  margin )
+  		//clientHeight : clientHeight 在页面上返回  内容  的  可视高度（ 不包括边框   , 边距或滚动条 ）
+  		if(getTop( iGsh ) + iGsh.offsetHeight < document.documentElement.clientHeight + scrollTop ){
+  			if(b){
+  				b = false;
+  				ipage++; //页数加一
+  				getImg();//调用 getImg() 方法
+  			}
+  		}
+
+  	}
+
+  	function getShort(){	//获取高度最短的图片
+  		var num = 0;
+  		var n = oLi[num].offsetHeight;
+  		for(var i = 1; i < oLiLen; i++){
+
+  			if(oLi[i].offsetHeight < n){
+
+  				num = i;
+  				n = oLi[i].offsetHeight;
+  			}
+  		}
+  		return num;
+  	}
+
+  	function getTop(obj){
+  		var iTop = 0;
+
+  		while(obj){
+
+  			iTop += obj.offsetTop; //offsetTop    : 获取对象相对于版面或由 offsetTop 属性指定的父坐标的计算顶端位置
+  			obj = obj.offsetParent;//offsetParent : 方法返回最近的祖先定位元素
+  		}
+  		return iTop;
+  	}
+  }
+  </script>
+  <!-- 瀑布流  -->
+</head>
+
+<body id="blog-article-sidebar">
+
+<!-- nav start -->
+{include file="public/nav"}
+<!-- nav end -->
+
+<!-- content start -->
+  <div class="container" id="container">
+    <div class="image-set" id="image-set"> </div>
+    <div class="image-set" id="image-set"> </div>
+    <div class="image-set" id="image-set"> </div>
+    <div class="image-set" id="image-set"> </div>
+  </div>
+<!-- content end -->
+
+{include file="Public/backtop"}
+
+{include file="Public/footer"}
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="__PUBLIC__index/assets/js/jquery.min.js"></script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="__PUBLIC__index/assets/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script src="__PUBLIC__index/assets/js/amazeui.min.js"></script><!--
+<script src="__PUBLIC__index/assets/js/pinto.min.js"></script>
+<script src="__PUBLIC__index/assets/js/img.js"></script> -->
+</body>
+</html>

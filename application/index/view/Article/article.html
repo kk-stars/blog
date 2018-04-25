@@ -1,0 +1,264 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>{$conf.title} - 文章详情</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+  <link rel="icon" type="image/png" href="__PUBLIC__index/assets/i/logo.png">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="__PUBLIC__index/assets/i/logo.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+  <link rel="apple-touch-icon-precomposed" href="__PUBLIC__index/assets/i/logo.png">
+  <meta name="msapplication-TileImage" content="__PUBLIC__index/assets/i/logo.png">
+  <meta name="msapplication-TileColor" content="#0e90d2">
+  <link rel="stylesheet" href="__PUBLIC__index/assets/css/amazeui.min.css">
+  <link rel="stylesheet" href="__PUBLIC__index/assets/css/app.css">
+  <link href="__PUBLIC__index/img/bootstrap.min.css" rel="stylesheet">
+  <link href="__PUBLIC__index/img/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__index/praise/css/style.css"/>
+  <link rel="stylesheet" href="__PUBLIC__index/my/my.css">
+</head>
+<body id="blog-article-sidebar">
+
+<!-- nav start -->
+
+{include file="public/nav"}
+<!-- nav end -->
+
+<!-- content srart -->
+<div class="am-g am-g-fixed blog-fixed blog-content banner-div1">
+    <div class="am-u-sm-12 content-div1" id="content">
+      <article class="am-article blog-article-p my-article">
+        <div class="am-article-hd">
+          <h1 class="am-article-title">{$ad.articleTitle}</h1>
+          <p class="am-article-meta">
+              <span><a href="cate?cid={$ad['cateId']}" class="blog-color">
+              <i class='am-icon-bars my-art-icon-i'></i> {$ad.cateName}</a></span> &nbsp;- &nbsp;
+              <span>&nbsp;{$ad.userName}</span> &nbsp;- &nbsp;
+              <span><i class='am-icon-clock-o'></i>&nbsp;{$ad.addTime}</span> &nbsp;- &nbsp;
+              {if condition="$ad['praiseClicks'] neq null"}
+              <span><i class='am-icon-heart'></i>&nbsp;<num id="praiseClicks_{$ad.articleId}">{$ad.praiseClicks}</num></span> &nbsp;- &nbsp;
+              {else /}
+              <span><i class='am-icon-heart'></i>&nbsp;0</span> &nbsp;- &nbsp;
+              {/if}
+
+              {if condition="$ad['articleClicks'] neq null"}
+              <span><i class='am-icon-eye'></i>&nbsp;{$ad.articleClicks}</span>
+              {else /}
+              <span><i class='am-icon-eye'></i>&nbsp;0</span>
+              {/if}
+          </p>
+        </div>
+        <div class="am-article-bd">
+	        {if condition="$ad['articlePic'] neq null"}
+	        	<img src="__PUBLIC__{$ad.articlePic}" alt="" class="blog-entry-img blog-article-margin">
+	        {/if}
+	        <span id="span-p-img">{$ad.articleContent}</span>
+        </div>
+      </article>
+
+        <div class="am-g blog-article-widget blog-article-margin">
+			<article class="htmleaf-container art-praise" title="点个赞呗">
+				<div id="praise">
+					<div class="feed" id="feed">
+						{if condition="$ad['praiseStatus'] eq 1"}
+							<div class="heart redHeart" onclick="artPraise({$Request.session.userId} + 0,{$ad.articleId})" id="like" rel="unlike"></div>
+						{else /}
+							<div class="heart" onclick="artPraise({$Request.session.userId} + 0,{$ad.articleId})" id="like" rel="like" style="background-position: left center;"></div>
+						{/if}
+						<div class="likeCount" id="likeCount"><num id="likes_{$ad.articleId}">{$ad.praiseClicks}</num><p style="font-size:13px;">人赞</p></div>
+					</div>
+				</div>
+			</article>
+			<script src="__PUBLIC__index/praise/js/jquery-1.11.0.min.js"></script>
+			<script>
+							 //点赞的用户,文章id
+				function artPraise( pUser , aid ){
+					if(pUser !== 0){
+						$.post('__URL__/Praise',{'puser' : pUser, 'aid' : aid},function(info){
+							var I = JSON.parse(info);
+							var pnm = I.pnum;
+					    	$('#like').css( "background-position" , "" )
+					        if( I.code == 1 ) {
+					        	$( '#praiseClicks_' + aid ).html( pnm );
+						        $( "#likes_" + aid ).html( pnm );
+						        $( '#like' ).addClass( "heartAnimation" ).attr( "rel" , "unlike" );
+
+					        } else if( I.code == 0 ) {
+					        	$( '#praiseClicks_' + aid ).html( pnm );
+						        $( "#likes_" + aid ).html( pnm );
+						        $( '#like' ).removeClass( "heartAnimation" ).removeClass( "redHeart" ).attr( "rel" , "like" );
+						        $( '#like' ).css( "background-position" , "left" );
+					        }
+						});
+					}else{
+						alert("需要登录后才可以点赞哦！");
+					}
+				}
+			</script>
+          <div class="am-u-lg-4 am-u-md-5 am-u-sm-7 am-u-sm-centered blog-text-center">
+            {if condition="$ad['articleTags'] neq null"}
+            <span class="am-icon-tags" title="标签"> &nbsp;:</span>
+              {volist name="$ad['articleTags']" id="aTags"}
+            	<a href="#">{$aTags}</a> ,
+              {/volist}
+			{/if}
+            <hr>
+            <a href=""><span class="am-icon-qq am-icon-fw am-primary blog-icon"></span></a>
+            <a href=""><span class="am-icon-wechat am-icon-fw blog-icon"></span></a>
+            <a href=""><span class="am-icon-weibo am-icon-fw blog-icon"></span></a>
+          </div>
+        </div>
+        <hr>
+        <ul class="am-pagination blog-article-margin">
+          {if condition="$upA neq null"}
+          	<li class="am-pagination-prev"><a href="article?aid={$upA}">&laquo; 一切的回顾</a></li>
+
+          	{else /}
+
+          	<li class="li-up-null" title="没有了">&laquo; 一切的回顾</li>
+          {/if}
+
+          {if condition="$downA neq null"}
+          	<li class="am-pagination-next"><a href="article?aid={$downA}">不远的未来 &raquo;</a></li>
+
+          	{else /}
+
+          	<li class="li-down-null" title="没有了">不远的未来 &raquo;</li>
+          {/if}
+        </ul>
+        <hr>
+        <div class="am-g blog-author blog-article-margin">
+          <div class="am-u-sm-3 am-u-md-3 am-u-lg-2">
+            <img src="__PUBLIC__{$am.picture}" alt="" class="blog-author-img am-circle">
+          </div>
+          <div class="am-u-sm-9 am-u-md-9 am-u-lg-10">
+          <h3><span>作者 &nbsp;: &nbsp;</span><span class="blog-color">{$ad.userName}</span></h3>
+            <p>{$am.aboutMe}</p>
+          </div>
+        </div>
+
+        <hr>
+        {if condition="$conf['comment'] eq 1"}
+	        <div id="bigdiv">
+	        	{include file="article/comment"}
+			</div>
+	        <hr>
+	    {/if}
+    </div>
+    <div class="am-u-md-4 am-u-sm-12 blog-sidebar div-info" id="blog-sidebar">
+
+        <div class="blog-clear-margin blog-sidebar-widget blog-bor am-g ">
+           <h2 class="blog-title"><span>文章分类 </span></h2>
+           <div class="am-u-sm-12 blog-clear-padding">
+        	{volist name="cate" id="c"}
+        		<a href="artlist?cid={$c['cateId']}" class="blog-tag" title="{$c['cateName']}">
+        		<?php echo mb_strlen($c['cateName'] ,'utf-8' ) > 4 ? mb_substr($c['cateName'] ,0 ,4 ,'utf-8' ).'...' : $c['cateName']; ?>
+        		</a>
+          	{/volist}
+           </div>
+       	</div>
+	    <div class="blog-sidebar-widget blog-bor">
+	        <h2 class="blog-title"><span>栏目最热</span></h2>
+	        <ul class="am-list">
+        		<!-- 只显示五条数据 -->
+	        	{volist name="cateHeat" id="ch"}
+            		<li><a href="article?aid={$ch['articleId']}">
+			    		<?php echo mb_strlen($ch['articleTitle'], 'utf-8') > 19 ? mb_substr($ch['articleTitle'], 0, 19, 'utf-8').'....' : $ch['articleTitle'];//三目运算符 ?>
+			    		</a>
+			    		<span style="font-size:14px;">
+			    			<p style="color:#888">
+			    			<?php echo mb_strlen(strip_tags($ch['articleContent']), 'utf-8') > 70 ? mb_substr(strip_tags($ch['articleContent']), 0, 70, 'utf-8').'....' : strip_tags($ch['articleContent']);//三目运算符  ?>
+			    			</p>
+			    		</span>
+			    	</li>
+	            {/volist}
+	        </ul>
+	    </div>
+	    <div class="blog-sidebar-widget blog-bor">
+	        <h2 class="blog-title"><span>最热文章</span></h2>
+	        <ul class="am-list">
+        		<!-- 只显示五条数据 -->
+	        	{volist name="heatArticles" id="has"}
+            		<li><a href="article?aid={$has['articleId']}">
+			    		<?php echo mb_strlen($has['articleTitle'], 'utf-8') > 19 ? mb_substr($has['articleTitle'], 0, 19, 'utf-8').'....' : $has['articleTitle'];//三目运算符 ?>
+			    		</a>
+			    		<span style="font-size:14px;">
+			    			<p style="color:#888">
+			    			<?php echo mb_strlen(strip_tags($has['articleContent']), 'utf-8') > 70 ? mb_substr(strip_tags($has['articleContent']), 0, 70, 'utf-8').'....' : strip_tags($has['articleContent']);//三目运算符  ?>
+			    			</p>
+			    		</span>
+			    	</li>
+	            {/volist}
+	        </ul>
+	    </div>
+	    <div class="blog-sidebar-widget blog-bor" id="sidebarBefore">
+	        <h2 class="blog-title"><span>最新文章</span></h2>
+	        <ul class="am-list">
+        		<!-- 只显示五条数据 -->
+	        	{volist name="newArticles" id="nas"}
+            		<li><a href="article?aid={$nas['articleId']}">
+			    		<?php echo mb_strlen($nas['articleTitle'], 'utf-8') > 19 ? mb_substr($nas['articleTitle'], 0, 19, 'utf-8').'....' : $nas['articleTitle'];//三目运算符 ?>
+			    		</a>
+			    		<span style="font-size:14px;">
+			    			<p style="color:#888">
+			    			<?php echo mb_strlen(strip_tags($nas['articleContent']), 'utf-8') > 70 ? mb_substr(strip_tags($nas['articleContent']), 0, 70, 'utf-8').'....' : strip_tags($nas['articleContent']);//三目运算符  ?>
+			    			</p>
+			    		</span>
+			    	</li>
+	            {/volist}
+	        </ul>
+	    </div>
+	    <div class="blog-sidebar-widget blog-bor" id="sidebar">
+	        <h2 class="blog-title"><span>点赞排名</span></h2>
+	        <ul class="am-list">
+        		<!-- 只显示五条数据 -->
+	        	{volist name="praiseArticles" id="ras"}
+            		<li><a href="article?aid={$ras['articleId']}">
+			    		<?php echo mb_strlen($ras['articleTitle'], 'utf-8') > 19 ? mb_substr($ras['articleTitle'], 0, 19, 'utf-8').'....' : $ras['articleTitle'];//三目运算符 ?>
+			    		</a>
+			    		<span style="font-size:14px;">
+			    			<p style="color:#888">
+			    			<?php echo mb_strlen(strip_tags($ras['articleContent']), 'utf-8') > 50 ? mb_substr(strip_tags($ras['articleContent']), 0, 50, 'utf-8').'....' : strip_tags($ras['articleContent']);//三目运算符  ?>
+			    			</p>
+			    		</span>
+			    	</li>
+	            {/volist}
+	        </ul>
+	    </div>
+    </div>
+</div>
+<!-- content end -->
+
+{include file="Public/backtop"}
+
+{include file="Public/footer"}
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="__PUBLIC__index/assets/js/jquery.min.js"></script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="__PUBLIC__index/assets/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script src="__PUBLIC__index/assets/js/amazeui.min.js"></script>
+<!-- <script src="__PUBLIC__index/assets/js/app.js"></script> -->
+<script src="__PUBLIC__index/assets/js/stickySidebar.js"></script>
+<script>
+	$(document).ready(function() {
+		$('#sidebar').stickySidebar({
+			sidebarTopMargin: 102,
+			footerThreshold: 0
+		});
+	});
+</script>
+</body>
+</html>

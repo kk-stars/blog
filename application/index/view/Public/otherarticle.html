@@ -1,0 +1,42 @@
+<div class="am-u-md-4 am-u-sm-12 blog-sidebar" id="blog-sidebar">
+    <div class="blog-sidebar-widget blog-bor">
+        <h2 class="blog-title"><span>最热文章</span></h2>
+        <ul class="am-list">
+        	{volist name="$about['likeSentence']" id="als"}
+        		{if condition="$key lt 5"}<!-- 只显示五条数据 -->
+            		<li><a href="javascript:;">{$als}</a></li>
+            	{/if}
+            {/volist}
+        </ul>
+    </div>
+    <div class="blog-sidebar-widget blog-bor">
+        <h2 class="blog-title"><span>最新文章</span></h2>
+        <ul class="am-list">
+        	{volist name="$about['likeSentence']" id="als"}
+        		{if condition="$key lt 5"}<!-- 只显示五条数据 -->
+            		<li><a href="javascript:;">{$als}</a></li>
+            	{/if}
+            {/volist}
+        </ul>
+    </div>
+    <div class="blog-sidebar-widget blog-bor">
+        <h2 class="blog-title"><span>推荐文章</span></h2>
+        <ul class="am-list">
+        	{volist name="$about['likeSentence']" id="als"}
+        		{if condition="$key lt 5"}<!-- 只显示五条数据 -->
+            		<li><a href="javascript:;">{$als}</a></li>
+            	{/if}
+            {/volist}
+        </ul>
+    </div>
+    <div class="blog-sidebar-widget blog-bor">
+        <h2 class="blog-title"><span>随笔</span></h2>
+        <ul class="am-list">
+        	{volist name="$about['likeSentence']" id="als"}
+        		{if condition="$key lt 5"}<!-- 只显示五条数据 -->
+            		<li><a href="javascript:;">{$als}</a></li>
+            	{/if}
+            {/volist}
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>{$conf.title} - 文章列表</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+  <link rel="icon" type="image/png" href="__PUBLIC__index/assets/i/logo.png">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="__PUBLIC__index/assets/i/logo.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+  <link rel="apple-touch-icon-precomposed" href="__PUBLIC__index/assets/i/logo.png">
+  <meta name="msapplication-TileImage" content="__PUBLIC__index/assets/i/logo.png">
+  <meta name="msapplication-TileColor" content="#0e90d2">
+  <link rel="stylesheet" href="__PUBLIC__index/assets/css/amazeui.min.css">
+  <link rel="stylesheet" href="__PUBLIC__index/assets/css/app.css">
+  <link href="__PUBLIC__index/img/bootstrap.min.css" rel="stylesheet">
+  <link href="__PUBLIC__index/img/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="__PUBLIC__index/my/my.css">
+</head>
+
+<body id="blog">
+{include file="public/nav"}
+
+<!-- content srart -->
+<div class="am-g am-g-fixed blog-fixed search">
+    <div class="am-u-md-12 am-u-sm-12">
+		<div class="weizhi">　<a>{$keywords}</a>　搜索结果： <a style="float:right;" href="home">返回首页>>　</a></div>
+		{if condition="$search neq null"}
+		  {volist name="search" id="ca"}
+	        <article class="am-g blog-entry-article" id='my-art'>
+                <h1>
+                	<a href="article?aid={$ca['articleId']}">
+                		<?php echo mb_strlen($ca['articleTitle'], 'utf-8') > 35 ? mb_substr($ca['articleTitle'], 0, 35, 'utf-8').'...' : $ca['articleTitle'];//三目运算符 ?>
+                	</a>
+                </h1>
+	            <div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-img art-div1">
+	            	{if condition="$ca['articlePic'] eq null"}
+		                <a href="article?aid={$ca['articleId']}" >
+		                	<img src="__PUBLIC__index/images/noimage.png" alt="" title="暂无图片(no image)" class="am-u-sm-12">
+		                </a>
+	                {else /}
+		                <a href="article?aid={$ca['articleId']}" >
+		                	<img src="__PUBLIC__{$ca.articlePic}" alt="" title="{$ca.articleTitle}" class="am-u-sm-12">
+		                </a>
+	                {/if}
+	                <p id='p-bottom'>
+	                	<span id='cateName'>
+	                		<i class='am-icon-navicon'></i> {$ca.cateName}
+	                	</span> &nbsp;&nbsp;
+
+	                	<span id='userName'>
+	                		<i class='am-icon-at'></i> {$ca.userName}
+	                	</span> &nbsp;&nbsp;
+
+	                	<span id='addTime'>
+	                		<i class='am-icon-clock-o'></i>
+	                		<?php echo mb_strlen($ca['addTime'], 'utf-8') > 10 ? mb_substr($ca['addTime'], 0, 10, 'utf-8') : $ca['addTime'];//三目运算符 ?>
+	                	</span> &nbsp;&nbsp;
+						{if condition="$ca['praiseClicks'] neq null"}
+              			<span><i class='am-icon-heart'> </i>&nbsp;{$ca.praiseClicks} </span> &nbsp;&nbsp;
+              			{else /}
+              			<span><i class='am-icon-heart'> </i>&nbsp;0 </span> &nbsp;&nbsp;
+              			{/if}
+
+						{if condition="$ca['articleClicks'] neq null"}
+              			<span><i class='am-icon-eye'> </i>&nbsp;{$ca.articleClicks} </span> &nbsp;&nbsp;
+              			{else /}
+              			<span><i class='am-icon-eye'> </i>&nbsp;0 </span> &nbsp;&nbsp;
+              			{/if}
+
+	                	<a href="article?aid={$ca['articleId']}" class="read-art">阅读原文>></a>
+	                </p>
+	            </div>
+	            <div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-text art-div2-content" id='div-p-content'>
+	                <p id='articleContent'><?php echo mb_strlen(strip_tags($ca['articleContent']), 'utf-8') > 180 ? mb_substr(strip_tags($ca['articleContent']), 0, 180, 'utf-8').'...' : strip_tags($ca['articleContent']);//三目运算符 ?></p>
+	            </div>
+	        </article>
+          {/volist}
+	    {else /}
+	    	<p id="search-result">无搜索结果</p>
+		{/if}
+    </div>
+		{include file="Public/info"}
+</div>
+<!-- content end -->
+
+{include file="Public/backtop"}
+
+{include file="Public/footer"}
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="__PUBLIC__index/assets/js/jquery.min.js"></script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="__PUBLIC__index/assets/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script src="__PUBLIC__index/assets/js/amazeui.min.js"></script>
+<!-- <script src="__PUBLIC__index/assets/js/app.js"></script> -->
+</body>
+</html>

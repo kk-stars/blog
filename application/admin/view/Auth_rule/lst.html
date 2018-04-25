@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>管理员权限 - Babysbreath博客管理系统</title>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__admin/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__admin/css/style.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__admin/css/beyond.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__admin/css/font-awesome.min.css">
+<link rel="apple-touch-icon-precomposed" href="__PUBLIC__admin/images/icon/icon.png">
+<link rel="shortcut icon" href="__PUBLIC__admin/images/icon/favicon.ico">
+<script src="__PUBLIC__admin/js/jquery-2.1.4.min.js"></script>
+</head>
+
+<body class="admin-select">
+<section class="container-fluid">
+  {include file="Public/header"}
+  <div class="row">
+  {include file="Public/aside"}
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-lg-10 col-md-offset-2 main" id="main">
+    <h1 class="page-header">操作</h1>
+        <ol class="breadcrumb">
+          <li><a data-toggle="modal" data-target="#addRuleData">增加权限</a></li>
+        </ol>
+        <h1 class="page-header">管理权限 <span class="badge">{$arcount}</span></h1>
+        <div class="table-responsive">
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th width="100"><span class="glyphicon glyphicon-th-large"></span> <span class="visible-lg">ID</span></th>
+                <th><span class="glyphicon glyphicon-bookmark"></span> <span class="visible-lg">权限名称</span></th>
+                <th><span class="glyphicon glyphicon-admin"></span> <span class="visible-lg">控    / 方</span></th>
+                <th><span class="glyphicon glyphicon-bookmark"></span> <span class="visible-lg">级别</span></th>
+                <th width="110"><span class="glyphicon glyphicon-pencil"></span> <span class="visible-lg">操作</span></th>
+              </tr>
+            </thead>
+            <tbody>
+             {volist name="AuthRule" id="ar"}
+              <tr id="id_{$ar.id}">
+                <td>{$ar.id}</td>
+                <td>{if condition = "$ar['pid'] neq 0 "}|{/if}<?php echo str_repeat("——",$ar['level']) ?>{$ar.name}</td>
+                <td>{$ar.title}</td>
+                <td>{$ar.level + 1}级</td>
+                <td><a rel="1" onclick="updRule({$ar.id})" data-toggle="modal" data-target="#upAdmin">修改</a>　
+                    <a rel="1" onclick="delRule({$ar.id})">删除</a>
+                </td>
+              </tr>
+             {/volist}
+            </tbody>
+          </table>
+        </div>
+    </div>
+  </div>
+</section>
+<div class="modal fade" id="addRuleData" tabindex="-1" role="dialog" aria-labelledby="addadminModalLabel">
+  <div class="modal-dialog" role="document" style="max-width:450px;">
+    <form action="" method="post" autocomplete="off" draggable="false">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" >增加权限</h4>
+        </div>
+        <div class="modal-body">
+          <table class="table" style="margin-bottom:0px;">
+            <thead>
+              <tr> </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td wdith="20%">权限名称:</td>
+                <td width="80%"><input type="text" value="" class="form-control" id="add_name" name="name"  autocomplete="off"  placeholder="请填写权限名称……" /></td>
+              </tr>
+              <tr>
+                <td wdith="20%">控     / 方:</td>
+                <td width="80%"><input type="text" value="" class="form-control" id="add_title" name="title" autocomplete="off" placeholder="请填写控制器名和方法名……" /></td>
+              </tr>
+              <tr>
+                <td wdith="20%">上级权限:</td>
+                <td width="80%">
+              		<select id="add_pid" name="pid" style=" width:320px; border-radius: 5px; border-color: #ccc; height: 34px; padding: 6px 12px; outline: none;">
+             			<option value="0" id="pnme">顶级权限</option>
+	           			{volist name="AuthRule" id="ar"}
+	        				<option value="{$ar.id}">{$ar.name}</option>
+	           			{/volist}
+              		</select>
+              	</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr></tr>
+            </tfoot>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <button type="button" onclick="addSubmit()" id="submit" class="btn btn-primary">提交</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<!--用户信息模态框-->
+<div class="modal fade" id="upAdmin" tabindex="-1" role="dialog" aria-labelledby="seeadminModalLabel">
+  <div class="modal-dialog" role="document" style="max-width:450px;">
+    <form action="" method="post" autocomplete="off" draggable="false">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">修改权限</h4>
+        </div>
+        <div class="modal-body">
+          <table class="table" style="margin-bottom:0px;">
+            <thead>
+              <tr> </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td wdith="20%">权限名称:</td>
+                <td width="80%"><input type="text" value="" class="form-control" id="up_name" name="name"  autocomplete="off" /></td>
+              </tr>
+              <tr>
+                <td wdith="20%">控     / 方:</td>
+                <td width="80%"><input type="text" value="" class="form-control" id="up_title" name="title" autocomplete="off" /></td>
+              </tr>
+              <tr>
+                <td wdith="20%">上级权限:</td>
+                <td width="80%">
+              		<select id="up_pid" name="pid" style=" width:320px; border-radius: 5px; border-color: #ccc; height: 34px; padding: 6px 12px; outline: none;">
+             			<option value="0" id="pnme">顶级权限</option>
+	           			{volist name="AuthRule" id="ar"}
+	        				<option value="{$ar.id}">{$ar.name}</option>
+	           			{/volist}
+              		</select>
+              	</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr></tr>
+            </tfoot>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <input type="hidden" id="up_id" name="id" value="" />
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <button type="button" onclick="upsubmit()" id="submit" class="btn btn-primary">提交</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="modal fade" id="deladmin" tabindex="-1" role="dialog" aria-labelledby="adminModalLabel" aria-hidden="true">
+	<div class="modal-dialog" style="width: 400px;">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" id="closeX" data-dismiss="modal" aria-hidden="true">×
+				</button>
+				<h4 class="modal-title" id="adminModalLabel">
+
+				</h4>
+			</div>
+			<div class="modal-body" id='delAdminBody'>
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" id="close" data-dismiss="modal" >关闭 </button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!--增加用户模态框-->
+<!--个人信息模态框-->
+<div class="modal fade" id="seeUserInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <form method="post" action="">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" >个人信息</h4>
+        </div>
+        <div class="modal-body">
+          <table class="table" style="margin-bottom:0px;">
+            <thead>
+              <tr> </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td wdith="20%">姓名:</td>
+                <td width="80%"><input type="text" value="" class="form-control" id="infoAdminName" name="adminName" maxlength="10" autocomplete="off" /></td>
+              </tr>
+              <tr>
+                <td wdith="20%">用户名:</td>
+                <td width="80%"><input type="text" value="" class="form-control" id="infoLoginName" name="loginName" maxlength="10" autocomplete="off" /></td>
+              </tr>
+              <tr>
+                <td wdith="20%">电话:</td>
+                <td width="80%"><input type="text" value="" class="form-control" id="infoContactNumber" name="contactNumber" maxlength="13" autocomplete="off" /></td>
+              </tr>
+              <tr>
+                <td wdith="20%">旧密码:</td>
+                <td width="80%"><input type="password" class="form-control" name="infoOldPassword" id="oldPassword" maxlength="18" autocomplete="off" /></td>
+              </tr>
+              <tr>
+                <td wdith="20%">新密码:</td>
+                <td width="80%"><input type="password" class="form-control" name="infoLoginPassword" id="loginPassword" maxlength="18" autocomplete="off" /></td>
+              </tr>
+              <tr>
+                <td wdith="20%">确认密码:</td>
+                <td width="80%"><input type="password" class="form-control" name="infoNewPassword" id="newPassword" maxlength="18" autocomplete="off" /></td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr></tr>
+            </tfoot>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <input type="hidden" name="adminId" id="infoAdminId" value="" />
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <button type="button" onclick="submitInfo()" class="btn btn-primary">提交</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="modal fade" id="upInfo" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
+	<div class="modal-dialog" style="width: 400px;">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" id="closeX" data-dismiss="modal" aria-hidden="true">×
+				</button>
+				<h4 class="modal-title" id="infoModalLabel">
+					修改个人信息
+				</h4>
+			</div>
+			<div class="modal-body" id='upInfoBody'>
+
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!--个人登录记录模态框-->
+  {include file="Public/loginRecord"}
+<!--微信二维码模态框-->
+  {include file="Public/wechat"}
+<!--提示模态框-->
+  {include file="Public/prompt"}
+<script src="__PUBLIC__admin/js/bootstrap.min.js"></script>
+<script src="__PUBLIC__admin/js/admin-scripts.js"></script><script>
+function updRule(id){
+	$.get('__URL__/Edit',{'id':id},function(data){
+		var d = JSON.parse(data);
+		document.getElementById('up_name').value = d.data.name;
+		document.getElementById('up_title').value = d.data.title;
+		document.getElementById('up_id').value = d.data.id;
+	});
+}
+
+function upsubmit(){
+	var uPid = $('#up_pid').val();
+	var uTitle = $('#up_title').val();
+	var uId = $('#up_id').val();
+	var uName = $('#up_name').val();
+
+	if(uTitle != '' && uName != '' ){
+		$.post('__URL__/Edit',{'pid':uPid,'title':uTitle,'name':uName,'id':uId},function(info){
+		var d = JSON.parse(info);
+		if(d.code == 1){
+			$('#adminModalLabel').html('修改权限');
+			$('#delAdminBody').html(d.message);
+			$('#deladmin').modal('show');
+			$('#upAdmin').modal('hide');
+			setTimeout("location.reload()",2000);
+			}
+		});
+	}
+}
+
+function addSubmit(){
+	var uPid = $('#add_pid').val();
+	var uName = $('#add_name').val();
+	var uTitle = $('#add_title').val();
+
+	if(uName != '' && uTitle != ''){
+		$.post('__URL__/Add',{'name':uName,'title':uTitle,'pid':uPid},function(info){
+			var d = JSON.parse(info);
+			if(d.code == 1){
+				$('#adminModalLabel').html('添加权限');
+				$('#delAdminBody').html(d.message);
+				$('#deladmin').modal('show');
+				$('#addRuleData').modal('hide');
+				setTimeout("location.reload()",2000);
+			}
+		});
+	}
+}
+
+function delRule(id){
+	var c = confirm("确定要删除此管理员权限吗?");
+	if(c == true){
+		$.post('__URL__/Del',{'id':id},function(data){
+			var d = JSON.parse(data);
+			if(d.code == 1){
+				$('#adminModalLabel').html('删除权限');
+				$('#delAdminBody').html(d.message);
+				$('#deladmin').modal('show');
+				$('#id_' + id).remove();
+			}else{
+				$('#delAdminBody').html(d.message);
+				$('#deladmin').modal('show');
+			}
+		});
+	}
+    return false;
+}
+
+function status(adminId){
+	var sTatus = document.getElementById("status_"+adminId).value;
+	$.post('__URL__/statusAdmin',{'adminId':adminId,'status':sTatus},function(info){
+		var d = JSON.parse(info);//解析
+		if(sTatus == 1){
+			//alert(d.message);
+			document.getElementById("status_"+adminId).value = d.message;
+		}else if(sTatus == 0){
+			//alert(d.message);
+			document.getElementById("status_"+adminId).value = d.message;
+		}else{
+			alert(d.message);
+		}
+		//location.reload();
+	});
+}
+</script>
+<script>
+function loginInfo(aid){
+	$.get('__URL__/info',{'adminId':aid},function(data){
+		var d = JSON.parse(data);
+		document.getElementById('infoAdminId').value = aid;
+		document.getElementById('infoAdminName').value = d.adminName;
+		document.getElementById('infoLoginName').value = d.loginName;
+		document.getElementById('infoContactNumber').value = d.contactNumber;
+	});
+}
+
+function submitInfo(){
+	var aAdmId = $('#infoAdminId').val();
+	var aAdmName = $('#infoAdminName').val();
+	var aLogName = $('#infoLoginName').val();
+	var aCttNum = $('#infoContactNumber').val();
+	var aAdmPwd = $('#infoOldPassword').val();
+	var aLogPwd = $('#infoLoginPassword').val();
+	var aNewPwd = $('#infoNewPassword').val();
+
+	var phoneReg = /(^1[3|4|5|7|8]\d{9}$)|(^09\d{8}$)/;
+	//电话
+	var phone = $.trim(aCttNum);
+	if (!phoneReg.test(phone)) {
+	  alert('请输入有效的手机号码！');
+	  return false;
+	}
+
+	if(aAdmPwd != '' && aLogPwd != '' && aNewPwd != '' && aLogPwd == aNewPwd){
+		$.post('__URL__/info',{'adminId':aAdmId,'adminName':aAdmName,'loginName':aLogName,'contactNumber':aCttNum,'oldPassword':aAdmPwd,'loginPassword':aLogPwd,'newPassword':aNewPwd},function(info){
+			var d = JSON.parse(info);
+			if(d.code == 1){
+				$('#infoModalLabel').html('信息提示');
+				$('#upInfoBody').html(d.message);
+				$('#upInfo').modal('show');
+				$('#seeUserInfo').modal('hide');
+				setTimeout('location.href = "{:url(\'admin/Login/login\')}";',2000);
+			}
+		});
+	}else if(aAdmPwd == '' || aLogPwd == '' && aNewPwd == ''){
+		$.post('__URL__/info',{'adminId':aAdmId,'adminName':aAdmName,'loginName':aLogName,'contactNumber':aCttNum,'oldPassword':0,'loginPassword':0,'newPassword':0},function(info){
+			var d = JSON.parse(info);
+			if(d.code == 1){
+				$('#infoModalLabel').html('信息提示');
+				$('#upInfoBody').html(d.message);
+				$('#upInfo').modal('show');
+				$('#seeUserInfo').modal('hide');
+				setTimeout('location.href = "{:url(\'admin/Login/login\')}";',2000);
+			}
+		});
+	}else{
+   	  alert('密码错误!');
+   	  return false;
+	}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+
+  <style type="text/css">
+
+		*{margin:0;padding:0;list-style-type:none;}
+
+		a,img{border:0;}
+
+		/* actGotop */
+
+		.actGotop{position:fixed;_position:absolute;bottom:100px;right:5%;width:50px;height:50px;display:none;}
+
+		.actGotop a,.actGotop a:link{width:50px;height:50px;display:inline-block;background:url(__PUBLIC__/index/backtop/images/backtop.png) no-repeat;_background:url(__PUBLIC__/index/backtop/images/backtop.png) no-repeat;outline:none;}
+
+		.actGotop a:hover{background:url(__PUBLIC__/index/backtop/images/backtop.png) no-repeat;outline:none;}
+
+</style>
+<div class="actGotop"><a href="javascript:;" title="返回顶部"></a></div>
+
+<script type="text/javascript" src="__PUBLIC__/index/backtop/js/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+$(function(){
+
+	$(window).scroll(function() {
+
+		if($(window).scrollTop() >= 100){
+
+			$('.actGotop').fadeIn(300);
+
+		}else{
+
+			$('.actGotop').fadeOut(300);
+
+		}
+
+	});
+
+	$('.actGotop').click(function(){
+
+		$('html,body').animate({scrollTop: '0px'}, 800);
+	});
+
+});
+
+</script>
+

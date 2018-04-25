@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>栏目 - Babysbreath博客管理系统</title>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__admin/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__admin/css/style.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__admin/css/font-awesome.min.css">
+<link rel="apple-touch-icon-precomposed" href="__PUBLIC__admin/images/icon/icon.png">
+<link rel="shortcut icon" href="__PUBLIC__admin/images/icon/favicon.ico">
+<script src="__PUBLIC__admin/js/jquery-2.1.4.min.js"></script>
+<!--[if gte IE 9]>
+  <script src="__PUBLIC__admin/js/jquery-1.11.1.min.js" type="text/javascript"></script>
+  <script src="__PUBLIC__admin/js/html5shiv.min.js" type="text/javascript"></script>
+  <script src="__PUBLIC__admin/js/respond.min.js" type="text/javascript"></script>
+  <script src="__PUBLIC__admin/js/selectivizr-min.js" type="text/javascript"></script>
+<![endif]-->
+<!--[if lt IE 9]>
+  <script>window.location.href='upgrade-browser.html';</script>
+<![endif]-->
+</head>
+
+<body class="user-select">
+<section class="container-fluid">
+  {include file="Public/header"}
+  <div class="row">
+  {include file="Public/aside"}
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-lg-10 col-md-offset-2 main" id="main">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="page-header">回收站 <span class="badge">{$count}</span></h1>
+          <div class="table-responsive">
+            <table class="table table-striped table-hover">
+              <thead>
+                <tr>
+                  <th width="200px"><span class="glyphicon glyphicon-paperclip"></span> <span class="visible-lg">ID</span></th>
+                  <th><span class="glyphicon glyphicon-file"></span> <span class="visible-lg">名称</span></th>
+                  <th width="300px"><span class="glyphicon glyphicon-list-alt"></span> <span class="visible-lg">别名</span></th>
+                  <th width="200px"><span class="glyphicon glyphicon-pushpin"></span> <span class="visible-lg">总数</span></th>
+                  <th width="200px"><span class="glyphicon glyphicon-pencil"></span> <span class="visible-lg">操作</span></th>
+                </tr>
+              </thead>
+              <tbody>
+              	{volist name="cate" id="c"}
+	                <tr>
+	                  <td>{$c.cateId}</td>
+	                  <td>{$c.cateName}</td>
+	                  <td>{$c.cateAlias}</td>
+	                  <td>{$c.cateArticles}</td>
+	                  <td>
+	                  	<a href="{:url('cate/cateRecoveryUp',array('cateId' => $c['cateId']))}">还原　</a>
+	                  	<a rel="1" href="{:url('cate/cateRecoveryDel',array('cateId' => $c['cateId']))}" onclick="return confirm('确定要彻底删除吗?(包括此栏目下的文章及子栏目)');">彻底删除</a>
+	                  </td>
+	                </tr>
+           		{/volist}
+	                <!-- <tr><td colspan='5'><div class="pagelist"></div></td></tr> -->
+              </tbody>
+            </table>
+            <span class="prompt-text"><strong>注：</strong>彻底删除一个栏目也会删除栏目下的文章和子栏目,请谨慎删除!(不可还原)</span> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--个人信息模态框-->
+  {include file="Public/info"}
+<!--个人登录记录模态框-->
+  {include file="Public/loginRecord"}
+<!--微信二维码模态框-->
+  {include file="Public/wechat"}
+<!--提示模态框-->
+  {include file="Public/prompt"}
+<!--右键菜单列表-->
+<div id="rightClickMenu">
+  <ul class="list-group rightClickMenuList">
+    <li class="list-group-item disabled">欢迎访问Babysbreath博客</li>
+    <li class="list-group-item"><span>IP：</span>172.16.10.129</li>
+    <li class="list-group-item"><span>地址：</span>河南省郑州市</li>
+    <li class="list-group-item"><span>系统：</span>Windows10 </li>
+    <li class="list-group-item"><span>浏览器：</span>Chrome47</li>
+  </ul>
+</div>
+<script src="__PUBLIC__admin/js/bootstrap.min.js"></script>
+<script src="__PUBLIC__admin/js/admin-scripts.js"></script>
+<script>
+function loginInfo(aid){
+	$.get('__URL__/info',{'adminId':aid},function(data){
+		var d = JSON.parse(data);
+		document.getElementById('adminId').value = aid;
+		document.getElementById('adminName').value = d.adminName;
+		document.getElementById('loginName').value = d.loginName;
+		document.getElementById('infoContactNumber').value = d.contactNumber;
+	});
+}
+
+function submitInfo(){
+	var aAdmId = $('#adminId').val();
+	var aAdmName = $('#adminName').val();
+	var aLogName = $('#loginName').val();
+	var aCttNum = $('#infoContactNumber').val();
+	var aAdmPwd = $('#oldPassword').val();
+	var aLogPwd = $('#loginPassword').val();
+	var aNewPwd = $('#newPassword').val();
+
+	var phoneReg = /(^1[3|4|5|7|8]\d{9}$)|(^09\d{8}$)/;
+	//电话
+	var phone = $.trim(aCttNum);
+	if (!phoneReg.test(phone)) {
+	  alert('请输入有效的手机号码！');
+	  return false;
+	}
+
+	if(aAdmPwd != '' && aLogPwd != '' && aNewPwd != '' && aLogPwd == aNewPwd){
+		$.post('__URL__/info',{'adminId':aAdmId,'adminName':aAdmName,'loginName':aLogName,'contactNumber':aCttNum,'oldPassword':aAdmPwd,'loginPassword':aLogPwd,'newPassword':aNewPwd},function(info){
+			var d = JSON.parse(info);
+			if(d.code == 1){
+				$('#adminModalLabel').html('信息提示');
+				$('#upAdminBody').html(d.message);
+				$('#upadmin').modal('show');
+				$('#seeUserInfo').modal('hide');
+				setTimeout('location.href = "{:url(\'admin/Login/login\')}";',2000);
+			}
+		});
+	}else if(aAdmPwd == '' || aLogPwd == '' && aNewPwd == ''){
+		$.post('__URL__/info',{'adminId':aAdmId,'adminName':aAdmName,'loginName':aLogName,'contactNumber':aCttNum,'oldPassword':0,'loginPassword':0,'newPassword':0},function(info){
+			var d = JSON.parse(info);
+			if(d.code == 1){
+				$('#adminModalLabel').html('信息提示');
+				$('#upAdminBody').html(d.message);
+				$('#upadmin').modal('show');
+				$('#seeUserInfo').modal('hide');
+				setTimeout('location.href = "{:url(\'admin/Login/login\')}";',2000);
+			}
+		});
+	}else{
+   	  alert('密码错误!');
+   	  return false;
+	}
+}
+</script>
+</body>
+</html>
