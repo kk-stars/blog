@@ -1,0 +1,21 @@
+﻿input[type=checkbox].colored-darkorange:checked~.text,input[type=radio].colored-darkorange:checked~.text{color:#ed4e2a}
+input[type=checkbox].checkbox-slider~.text{margin:0 4px;min-height:24px}
+input[type=checkbox]~.text,input[type=radio]~.text{position:relative;z-index:11;display:inline-block;margin:0;line-height:20px;min-height:18px;min-width:18px;font-weight:normal}
+input[type=checkbox].checkbox-slider:checked~.text:before{cursor:pointer; text-indent:5px;background-color:#5db2ff;border-color:#888383;color:#fff}
+input[type=checkbox].checkbox-slider.colored-darkorange:checked~.text:before{background-color:#ed4e2a;border-color:#ed4e2a}
+input[type=checkbox].colored-darkorange:checked~.text:before,input[type=radio].colored-darkorange:checked~.text:before{border-color:#ed4e2a;color:#ed4e2a}
+input[type=checkbox].checkbox-slider~.text:after{cursor:pointer; font-family:'Open Sans','Segoe UI';content:'';font-size:10px;font-weight:300;background-color:#fff;border:5px solid #5db2ff;border-radius:100%;width:22px;height:22px;line-height:20px;position:absolute;top:-2px;left:-3px;padding:0;-webkit-box-shadow:0 1px 1px 1px rgba(0,0,0,.3);-moz-box-shadow:0 1px 1px 1px rgba(0,0,0,.3);box-shadow:0 1px 1px 1px rgba(0,0,0,.3);-webkit-transition:all .3s ease;-moz-transition:all .3s ease;-o-transition:all .3s ease;transition:all .3s ease;margin-top:5px;}
+input[type=checkbox].checkbox-slider~.text:before{cursor:pointer; font-family:'Open Sans','Segoe UI';content:"ON           OFF";background-color:#fff;color:#999;font-weight:300;font-size:10px;line-height:18px;height:20px;overflow:hidden;border-radius:50rem;border:1px solid #ccc;text-align:left;float:left;padding:0;width:60px;text-indent:-21px;margin-right:0;-webkit-transition:all .3s ease 0s;-moz-transition:all .3s ease 0s;-o-transition:all .3s ease 0s;transition:all .3s ease 0s}
+input[type=checkbox].checkbox-slider.colored-darkorange:checked~.text:after{background-color:#ed4e2a;border-color:#fff}
+input[type=checkbox].checkbox-slider.colored-darkorange~.text:after{border-color:#ed4e2a}
+input[type=checkbox].checkbox-slider:checked~.text:after{cursor:pointer; left:40px;background-color:#5db2ff;border:5px solid #fff}
+input[type=checkbox]~.text:before,input[type=radio]~.text:before{font-family:fontAwesome;font-weight:bold;font-size:13px;color:#333;content:" ";background-color:#fafafa;border:1px solid #c8c8c8;box-shadow:0 1px 2px rgba(0,0,0,.05);border-radius:0;display:inline-block;text-align:center;vertical-align:middle;height:18px;line-height:16px;min-width:18px;margin-right:5px;margin-top:5px;-webkit-transition:all .3s ease;-moz-transition:all .3s ease;-o-transition:all .3s ease;transition:all .3s ease}
+:after, :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+
+

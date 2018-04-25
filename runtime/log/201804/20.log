@@ -1,0 +1,3081 @@
+---------------------------------------------------------------
+[ 2018-04-20T12:44:01+08:00 ] ::1 ::1 GET /blog/log
+[ info ] localhost/blog/log [运行时间：0.096281s][吞吐率：10.39req/s] [内存消耗：2,854.56kb] [文件加载：55]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 'index/log/log/index',
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/blog/home',
+  'accept-encoding' => 'gzip, deflate, gzip, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Log->log[ D:\B\AppServ\www\blog\application\index\controller\Log.php ]
+[ info ] [ VIEW ] D:\B\AppServ\www\blog/application/index\view\log\log.html [ array (
+  0 => 'conf',
+  1 => 'cate',
+  2 => 'about',
+  3 => 'heatArticles',
+  4 => 'newArticles',
+  5 => 'praiseArticles',
+  6 => 'friendshiplink',
+  7 => 'tags',
+  8 => 'message',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004193s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.002590s ]
+[ sql ] [ SQL ] SELECT * FROM `config` LIMIT 1 [ RunTime:0.000779s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cate` [ RunTime:0.004551s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000468s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `aboutme` [ RunTime:0.003075s ]
+[ sql ] [ SQL ] SELECT * FROM `aboutme` WHERE  `meId` = 1 LIMIT 1 [ RunTime:0.000597s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.000787s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY articleClicks desc LIMIT 5 [ RunTime:0.001127s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY addTime desc LIMIT 5 [ RunTime:0.000785s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY praiseClicks desc LIMIT 5 [ RunTime:0.000708s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `friendshiplink` [ RunTime:0.000813s ]
+[ sql ] [ SQL ] SELECT * FROM `friendshiplink` WHERE  `status` = 1 [ RunTime:0.000489s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `articleTags` FROM `article` WHERE  `status` = 1 [ RunTime:0.000588s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.002612s ]
+[ sql ] [ SQL ] SELECT `m`.*,`u`.`userName` FROM `message` `m` INNER JOIN `user` `u` ON `u`.`userId`=`m`.`messageAtor` WHERE  `m`.`status` = 1 LIMIT 5 [ RunTime:0.002223s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000551s ]
+---------------------------------------------------------------
+[ 2018-04-20T12:44:01+08:00 ] ::1 ::1 GET /blog/captcha.html
+[ info ] localhost/blog/captcha.html [运行时间：0.062416s][吞吐率：16.02req/s] [内存消耗：1,464.10kb] [文件加载：39]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\captcha\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'accept' => 'image/webp,image/*,*/*;q=0.8',
+  'referer' => 'http://localhost/blog/log',
+  'accept-encoding' => 'gzip, deflate, gzip, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+  'id' => NULL,
+)
+[ info ] [ RUN ] think\captcha\CaptchaController->index[ D:\B\AppServ\www\blog\vendor\topthink\think-captcha\src\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-20T15:05:35+08:00 ] ::1 ::1 GET /blog/admin/index/index.html
+[ info ] localhost/blog/admin/index/index.html [运行时间：0.085845s][吞吐率：11.65req/s] [内存消耗：2,604.73kb] [文件加载：55]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/blog/admin/admin/adminlog.html',
+  'accept-encoding' => 'gzip, deflate, gzip, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Index->index[ D:\B\AppServ\www\blog\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] D:\B\AppServ\www\blog/application/admin\view\index\index.html [ array (
+  0 => 'conf',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002458s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.005466s ]
+[ sql ] [ SQL ] SELECT * FROM `config` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000892s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `comment` [ RunTime:0.004511s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000538s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin` [ RunTime:0.003525s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `admin` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000531s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.004645s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `article` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000682s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `friendshiplink` [ RunTime:0.003495s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `friendshiplink` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000392s ]
+[ sql ] [ SQL ] select version(); [ RunTime:0.000378s ]
+[ sql ] [ SQL ] SELECT `numberOfLogin` FROM `admin` WHERE  `adminId` = 1 LIMIT 1 [ RunTime:0.000419s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:05:35+08:00 ] ::1 ::1 GET /blog/admin/index/time.html
+[ info ] localhost/blog/admin/index/time.html [运行时间：0.113686s][吞吐率：8.80req/s] [内存消耗：2,522.83kb] [文件加载：54]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'time',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/blog/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate, gzip, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Index->time[ D:\B\AppServ\www\blog\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] D:\B\AppServ\www\blog/application/admin\view\index\time.html [ array (
+  0 => 'conf',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001899s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.007716s ]
+[ sql ] [ SQL ] SELECT * FROM `config` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000911s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `comment` [ RunTime:0.004899s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000545s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin` [ RunTime:0.005459s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `admin` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000724s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.004123s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `article` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000500s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `friendshiplink` [ RunTime:0.003831s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `friendshiplink` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000446s ]
+[ sql ] [ SQL ] select version(); [ RunTime:0.000335s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:05:38+08:00 ] ::1 ::1 GET /blog/admin/article/article.html
+[ info ] localhost/blog/admin/article/article.html [运行时间：0.287795s][吞吐率：3.47req/s] [内存消耗：3,358.08kb] [文件加载：63]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'article',
+    2 => 'article',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/blog/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate, gzip, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT file
+[ info ] [ RUN ] app\admin\controller\Article->article[ D:\B\AppServ\www\blog\application\admin\controller\Article.php ]
+[ info ] [ VIEW ] D:\B\AppServ\www\blog/application/admin\view\article\article.html [ array (
+  0 => 'articleData',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001452s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.003206s ]
+[ sql ] [ SQL ] SELECT `articleId` FROM `article` [ RunTime:0.000600s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `comment` [ RunTime:0.003846s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `commentArticleid` = 32 LIMIT 1 [ RunTime:0.000684s ]
+[ sql ] [ SQL ] UPDATE `article`  SET `articleComments`=0  WHERE  `articleId` = 32 [ RunTime:0.000581s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `commentArticleid` = 38 LIMIT 1 [ RunTime:0.000405s ]
+[ sql ] [ SQL ] UPDATE `article`  SET `articleComments`=0  WHERE  `articleId` = 38 [ RunTime:0.000459s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `commentArticleid` = 25 LIMIT 1 [ RunTime:0.000574s ]
+[ sql ] [ SQL ] UPDATE `article`  SET `articleComments`=0  WHERE  `articleId` = 25 [ RunTime:0.000963s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `commentArticleid` = 30 LIMIT 1 [ RunTime:0.000534s ]
+[ sql ] [ SQL ] UPDATE `article`  SET `articleComments`=0  WHERE  `articleId` = 30 [ RunTime:0.000470s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `commentArticleid` = 31 LIMIT 1 [ RunTime:0.000423s ]
+[ sql ] [ SQL ] UPDATE `article`  SET `articleComments`=0  WHERE  `articleId` = 31 [ RunTime:0.000579s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `commentArticleid` = 33 LIMIT 1 [ RunTime:0.000493s ]
+[ sql ] [ SQL ] UPDATE `article`  SET `articleComments`=0  WHERE  `articleId` = 33 [ RunTime:0.000490s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `commentArticleid` = 35 LIMIT 1 [ RunTime:0.000494s ]
+[ sql ] [ SQL ] UPDATE `article`  SET `articleComments`=0  WHERE  `articleId` = 35 [ RunTime:0.000485s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `commentArticleid` = 36 LIMIT 1 [ RunTime:0.000452s ]
+[ sql ] [ SQL ] UPDATE `article`  SET `articleComments`=0  WHERE  `articleId` = 36 [ RunTime:0.000462s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `commentArticleid` = 39 LIMIT 1 [ RunTime:0.000509s ]
+[ sql ] [ SQL ] UPDATE `article`  SET `articleComments`=0  WHERE  `articleId` = 39 [ RunTime:0.000472s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `commentArticleid` = 40 LIMIT 1 [ RunTime:0.000493s ]
+[ sql ] [ SQL ] UPDATE `article`  SET `articleComments`=0  WHERE  `articleId` = 40 [ RunTime:0.000404s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `commentArticleid` = 41 LIMIT 1 [ RunTime:0.000655s ]
+[ sql ] [ SQL ] UPDATE `article`  SET `articleComments`=5  WHERE  `articleId` = 41 [ RunTime:0.000362s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `commentArticleid` = 42 LIMIT 1 [ RunTime:0.000309s ]
+[ sql ] [ SQL ] UPDATE `article`  SET `articleComments`=0  WHERE  `articleId` = 42 [ RunTime:0.000349s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `commentArticleid` = 9 LIMIT 1 [ RunTime:0.000409s ]
+[ sql ] [ SQL ] UPDATE `article`  SET `articleComments`=0  WHERE  `articleId` = 9 [ RunTime:0.000402s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `commentArticleid` = 10 LIMIT 1 [ RunTime:0.000456s ]
+[ sql ] [ SQL ] UPDATE `article`  SET `articleComments`=0  WHERE  `articleId` = 10 [ RunTime:0.000413s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `commentArticleid` = 12 LIMIT 1 [ RunTime:0.000500s ]
+[ sql ] [ SQL ] UPDATE `article`  SET `articleComments`=0  WHERE  `articleId` = 12 [ RunTime:0.000367s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `commentArticleid` = 19 LIMIT 1 [ RunTime:0.000345s ]
+[ sql ] [ SQL ] UPDATE `article`  SET `articleComments`=0  WHERE  `articleId` = 19 [ RunTime:0.000286s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `commentArticleid` = 20 LIMIT 1 [ RunTime:0.000319s ]
+[ sql ] [ SQL ] UPDATE `article`  SET `articleComments`=0  WHERE  `articleId` = 20 [ RunTime:0.000283s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `commentArticleid` = 22 LIMIT 1 [ RunTime:0.000285s ]
+[ sql ] [ SQL ] UPDATE `article`  SET `articleComments`=0  WHERE  `articleId` = 22 [ RunTime:0.000444s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `commentArticleid` = 7 LIMIT 1 [ RunTime:0.000362s ]
+[ sql ] [ SQL ] UPDATE `article`  SET `articleComments`=0  WHERE  `articleId` = 7 [ RunTime:0.000511s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `commentArticleid` = 8 LIMIT 1 [ RunTime:0.000480s ]
+[ sql ] [ SQL ] UPDATE `article`  SET `articleComments`=0  WHERE  `articleId` = 8 [ RunTime:0.000567s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `commentArticleid` = 13 LIMIT 1 [ RunTime:0.000433s ]
+[ sql ] [ SQL ] UPDATE `article`  SET `articleComments`=0  WHERE  `articleId` = 13 [ RunTime:0.000533s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `commentArticleid` = 21 LIMIT 1 [ RunTime:0.000454s ]
+[ sql ] [ SQL ] UPDATE `article`  SET `articleComments`=0  WHERE  `articleId` = 21 [ RunTime:0.000413s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `commentArticleid` = 1 LIMIT 1 [ RunTime:0.000438s ]
+[ sql ] [ SQL ] UPDATE `article`  SET `articleComments`=8  WHERE  `articleId` = 1 [ RunTime:0.000451s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `commentArticleid` = 2 LIMIT 1 [ RunTime:0.000476s ]
+[ sql ] [ SQL ] UPDATE `article`  SET `articleComments`=5  WHERE  `articleId` = 2 [ RunTime:0.000471s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `commentArticleid` = 3 LIMIT 1 [ RunTime:0.000369s ]
+[ sql ] [ SQL ] UPDATE `article`  SET `articleComments`=3  WHERE  `articleId` = 3 [ RunTime:0.000392s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `commentArticleid` = 4 LIMIT 1 [ RunTime:0.000361s ]
+[ sql ] [ SQL ] UPDATE `article`  SET `articleComments`=4  WHERE  `articleId` = 4 [ RunTime:0.000350s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `commentArticleid` = 5 LIMIT 1 [ RunTime:0.000308s ]
+[ sql ] [ SQL ] UPDATE `article`  SET `articleComments`=3  WHERE  `articleId` = 5 [ RunTime:0.000272s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `commentArticleid` = 6 LIMIT 1 [ RunTime:0.000330s ]
+[ sql ] [ SQL ] UPDATE `article`  SET `articleComments`=3  WHERE  `articleId` = 6 [ RunTime:0.000545s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `commentArticleid` = 11 LIMIT 1 [ RunTime:0.000540s ]
+[ sql ] [ SQL ] UPDATE `article`  SET `articleComments`=0  WHERE  `articleId` = 11 [ RunTime:0.000475s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `commentArticleid` = 14 LIMIT 1 [ RunTime:0.000437s ]
+[ sql ] [ SQL ] UPDATE `article`  SET `articleComments`=0  WHERE  `articleId` = 14 [ RunTime:0.000525s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `commentArticleid` = 15 LIMIT 1 [ RunTime:0.000508s ]
+[ sql ] [ SQL ] UPDATE `article`  SET `articleComments`=0  WHERE  `articleId` = 15 [ RunTime:0.000658s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `commentArticleid` = 16 LIMIT 1 [ RunTime:0.000547s ]
+[ sql ] [ SQL ] UPDATE `article`  SET `articleComments`=0  WHERE  `articleId` = 16 [ RunTime:0.000469s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `commentArticleid` = 17 LIMIT 1 [ RunTime:0.000600s ]
+[ sql ] [ SQL ] UPDATE `article`  SET `articleComments`=0  WHERE  `articleId` = 17 [ RunTime:0.000555s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `commentArticleid` = 18 LIMIT 1 [ RunTime:0.000466s ]
+[ sql ] [ SQL ] UPDATE `article`  SET `articleComments`=0  WHERE  `articleId` = 18 [ RunTime:0.000379s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `commentArticleid` = 24 LIMIT 1 [ RunTime:0.000347s ]
+[ sql ] [ SQL ] UPDATE `article`  SET `articleComments`=0  WHERE  `articleId` = 24 [ RunTime:0.000370s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `commentArticleid` = 29 LIMIT 1 [ RunTime:0.000315s ]
+[ sql ] [ SQL ] UPDATE `article`  SET `articleComments`=0  WHERE  `articleId` = 29 [ RunTime:0.000746s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `commentArticleid` = 34 LIMIT 1 [ RunTime:0.000495s ]
+[ sql ] [ SQL ] UPDATE `article`  SET `articleComments`=0  WHERE  `articleId` = 34 [ RunTime:0.000563s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `commentArticleid` = 37 LIMIT 1 [ RunTime:0.000416s ]
+[ sql ] [ SQL ] UPDATE `article`  SET `articleComments`=0  WHERE  `articleId` = 37 [ RunTime:0.000372s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `commentArticleid` = 23 LIMIT 1 [ RunTime:0.000363s ]
+[ sql ] [ SQL ] UPDATE `article`  SET `articleComments`=0  WHERE  `articleId` = 23 [ RunTime:0.000438s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `commentArticleid` = 26 LIMIT 1 [ RunTime:0.000444s ]
+[ sql ] [ SQL ] UPDATE `article`  SET `articleComments`=0  WHERE  `articleId` = 26 [ RunTime:0.000411s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `article` `a` INNER JOIN `cate` `c` ON `a`.`articleCate`=`c`.`cateId` INNER JOIN `user` `u` ON `a`.`ator`=`u`.`userId` WHERE  `a`.`status` = '1' LIMIT 1 [ RunTime:0.006282s ]
+[ sql ] [ SQL ] SELECT `a`.*,`c`.`cateName`,`u`.`userName` FROM `article` `a` INNER JOIN `cate` `c` ON `a`.`articleCate`=`c`.`cateId` INNER JOIN `user` `u` ON `a`.`ator`=`u`.`userId` WHERE  `a`.`status` = '1' ORDER BY a.articleId asc LIMIT 0,6 [ RunTime:0.004699s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:05:45+08:00 ] ::1 ::1 GET /blog/admin/mood/mood.html
+[ info ] localhost/blog/admin/mood/mood.html [运行时间：0.516184s][吞吐率：1.94req/s] [内存消耗：2,934.23kb] [文件加载：60]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'mood',
+    2 => 'mood',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/blog/admin/article/article.html',
+  'accept-encoding' => 'gzip, deflate, gzip, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Mood->mood[ D:\B\AppServ\www\blog\application\admin\controller\Mood.php ]
+[ info ] [ VIEW ] D:\B\AppServ\www\blog/application/admin\view\mood\mood.html [ array (
+  0 => 'conf',
+  1 => 'mood',
+  2 => 'mCount',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003071s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.011261s ]
+[ sql ] [ SQL ] SELECT * FROM `config` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001342s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `comment` [ RunTime:0.009761s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000935s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin` [ RunTime:0.004810s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `admin` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000642s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.005244s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `article` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000670s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `friendshiplink` [ RunTime:0.005302s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `friendshiplink` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000575s ]
+[ sql ] [ SQL ] select version(); [ RunTime:0.000346s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mood` [ RunTime:0.031962s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `mood` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000753s ]
+[ sql ] [ SQL ] SELECT * FROM `mood` WHERE  `status` = 1 LIMIT 0,18 [ RunTime:0.000703s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `mood` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000421s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:05:51+08:00 ] ::1 ::1 GET /blog/admin/imgs/index.html
+[ info ] localhost/blog/admin/imgs/index.html [运行时间：0.331077s][吞吐率：3.02req/s] [内存消耗：2,912.90kb] [文件加载：60]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'imgs',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/blog/admin/mood/mood.html',
+  'accept-encoding' => 'gzip, deflate, gzip, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Imgs->index[ D:\B\AppServ\www\blog\application\admin\controller\Imgs.php ]
+[ info ] [ VIEW ] D:\B\AppServ\www\blog/application/admin\view\imgs\index.html [ array (
+  0 => 'conf',
+  1 => 'imgData',
+  2 => 'imgCount',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001732s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.005348s ]
+[ sql ] [ SQL ] SELECT * FROM `config` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000779s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `comment` [ RunTime:0.005595s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000609s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin` [ RunTime:0.004047s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `admin` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000697s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.004764s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `article` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000576s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `friendshiplink` [ RunTime:0.003193s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `friendshiplink` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000557s ]
+[ sql ] [ SQL ] select version(); [ RunTime:0.000339s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `imgs` [ RunTime:0.005309s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `imgs` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000877s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `imgs` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000749s ]
+[ sql ] [ SQL ] SELECT * FROM `imgs` WHERE  `status` = 1 LIMIT 0,6 [ RunTime:0.000588s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:05:54+08:00 ] ::1 ::1 GET /blog/admin/notice/notice.html
+[ info ] localhost/blog/admin/notice/notice.html [运行时间：0.282206s][吞吐率：3.54req/s] [内存消耗：2,918.01kb] [文件加载：60]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'notice',
+    2 => 'notice',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/blog/admin/imgs/index.html',
+  'accept-encoding' => 'gzip, deflate, gzip, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Notice->notice[ D:\B\AppServ\www\blog\application\admin\controller\Notice.php ]
+[ info ] [ VIEW ] D:\B\AppServ\www\blog/application/admin\view\notice\notice.html [ array (
+  0 => 'conf',
+  1 => 'count',
+  2 => 'notice',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001841s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.004437s ]
+[ sql ] [ SQL ] SELECT * FROM `config` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000797s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `comment` [ RunTime:0.004208s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000685s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin` [ RunTime:0.004223s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `admin` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000510s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.003982s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `article` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000495s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `friendshiplink` [ RunTime:0.003489s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `friendshiplink` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000556s ]
+[ sql ] [ SQL ] select version(); [ RunTime:0.000392s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `notice` [ RunTime:0.004591s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `notice` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000514s ]
+[ sql ] [ SQL ] SELECT * FROM `notice` WHERE  `status` = 1 LIMIT 0,15 [ RunTime:0.000555s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `notice` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000524s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:05:59+08:00 ] ::1 ::1 GET /blog/admin/comment/comment.html
+[ info ] localhost/blog/admin/comment/comment.html [运行时间：0.281980s][吞吐率：3.55req/s] [内存消耗：2,941.11kb] [文件加载：60]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'comment',
+    2 => 'comment',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/blog/admin/notice/notice.html',
+  'accept-encoding' => 'gzip, deflate, gzip, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Comment->comment[ D:\B\AppServ\www\blog\application\admin\controller\Comment.php ]
+[ info ] [ VIEW ] D:\B\AppServ\www\blog/application/admin\view\comment\comment.html [ array (
+  0 => 'conf',
+  1 => 'comment',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011672s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.001978s ]
+[ sql ] [ SQL ] SELECT * FROM `config` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000575s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `comment` [ RunTime:0.003407s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000359s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin` [ RunTime:0.003109s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `admin` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000425s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.000990s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `article` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000505s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `friendshiplink` [ RunTime:0.000988s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `friendshiplink` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000695s ]
+[ sql ] [ SQL ] select version(); [ RunTime:0.000302s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` `c` INNER JOIN `article` `a` ON `c`.`commentArticleid`=`a`.`articleId` INNER JOIN `user` `u` ON `c`.`commentAtor`=`u`.`userId` WHERE  `c`.`status` = '1' LIMIT 1 [ RunTime:0.000887s ]
+[ sql ] [ SQL ] SELECT `c`.*,`a`.`articleTitle`,`u`.`userName` FROM `comment` `c` INNER JOIN `article` `a` ON `c`.`commentArticleid`=`a`.`articleId` INNER JOIN `user` `u` ON `c`.`commentAtor`=`u`.`userId` WHERE  `c`.`status` = '1' ORDER BY c.commentId asc LIMIT 0,18 [ RunTime:0.001192s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:06:06+08:00 ] ::1 ::1 GET /blog/admin/message/message.html
+[ info ] localhost/blog/admin/message/message.html [运行时间：0.372855s][吞吐率：2.68req/s] [内存消耗：2,913.05kb] [文件加载：60]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'message',
+    2 => 'message',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/blog/admin/comment/comment.html',
+  'accept-encoding' => 'gzip, deflate, gzip, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Message->message[ D:\B\AppServ\www\blog\application\admin\controller\Message.php ]
+[ info ] [ VIEW ] D:\B\AppServ\www\blog/application/admin\view\message\message.html [ array (
+  0 => 'conf',
+  1 => 'message',
+  2 => 'mCount',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011323s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.001561s ]
+[ sql ] [ SQL ] SELECT * FROM `config` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000694s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `comment` [ RunTime:0.000913s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000475s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin` [ RunTime:0.001393s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `admin` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000531s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.001991s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `article` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000744s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `friendshiplink` [ RunTime:0.001306s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `friendshiplink` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000666s ]
+[ sql ] [ SQL ] select version(); [ RunTime:0.000519s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.001071s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `message` `m` INNER JOIN `user` `u` ON `u`.`userId`=`m`.`messageAtor` WHERE  `m`.`status` = '1' LIMIT 1 [ RunTime:0.000654s ]
+[ sql ] [ SQL ] SELECT `m`.*,`u`.`userName` FROM `message` `m` INNER JOIN `user` `u` ON `u`.`userId`=`m`.`messageAtor` WHERE  `m`.`status` = '1' LIMIT 0,18 [ RunTime:0.000508s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `message` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000448s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:06:12+08:00 ] ::1 ::1 GET /blog/admin/cate/category.html
+[ info ] localhost/blog/admin/cate/category.html [运行时间：1.370711s][吞吐率：0.73req/s] [内存消耗：3,321.73kb] [文件加载：62]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'cate',
+    2 => 'category',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/blog/admin/message/message.html',
+  'accept-encoding' => 'gzip, deflate, gzip, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT file
+[ info ] [ RUN ] app\admin\controller\Cate->category[ D:\B\AppServ\www\blog\application\admin\controller\Cate.php ]
+[ info ] [ VIEW ] D:\B\AppServ\www\blog/application/admin\view\cate\category.html [ array (
+  0 => 'cate',
+  1 => 'count',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011555s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cate` [ RunTime:0.001609s ]
+[ sql ] [ SQL ] SELECT `cateId` FROM `cate` [ RunTime:0.000565s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.001186s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `article` WHERE  `articleCate` = 1  AND `status` = 1 LIMIT 1 [ RunTime:0.000669s ]
+[ sql ] [ SQL ] UPDATE `cate`  SET `cateArticles`=0  WHERE  `cateId` = 1 [ RunTime:0.000959s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `article` WHERE  `articleCate` = 2  AND `status` = 1 LIMIT 1 [ RunTime:0.001203s ]
+[ sql ] [ SQL ] UPDATE `cate`  SET `cateArticles`=2  WHERE  `cateId` = 2 [ RunTime:0.181041s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `article` WHERE  `articleCate` = 3  AND `status` = 1 LIMIT 1 [ RunTime:0.001215s ]
+[ sql ] [ SQL ] UPDATE `cate`  SET `cateArticles`=0  WHERE  `cateId` = 3 [ RunTime:0.000953s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `article` WHERE  `articleCate` = 4  AND `status` = 1 LIMIT 1 [ RunTime:0.001096s ]
+[ sql ] [ SQL ] UPDATE `cate`  SET `cateArticles`=0  WHERE  `cateId` = 4 [ RunTime:0.000919s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `article` WHERE  `articleCate` = 5  AND `status` = 1 LIMIT 1 [ RunTime:0.001033s ]
+[ sql ] [ SQL ] UPDATE `cate`  SET `cateArticles`=0  WHERE  `cateId` = 5 [ RunTime:0.001156s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `article` WHERE  `articleCate` = 6  AND `status` = 1 LIMIT 1 [ RunTime:0.001219s ]
+[ sql ] [ SQL ] UPDATE `cate`  SET `cateArticles`=10  WHERE  `cateId` = 6 [ RunTime:0.120596s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `article` WHERE  `articleCate` = 7  AND `status` = 1 LIMIT 1 [ RunTime:0.000617s ]
+[ sql ] [ SQL ] UPDATE `cate`  SET `cateArticles`=6  WHERE  `cateId` = 7 [ RunTime:0.000443s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `article` WHERE  `articleCate` = 8  AND `status` = 1 LIMIT 1 [ RunTime:0.000497s ]
+[ sql ] [ SQL ] UPDATE `cate`  SET `cateArticles`=3  WHERE  `cateId` = 8 [ RunTime:0.000606s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `article` WHERE  `articleCate` = 9  AND `status` = 1 LIMIT 1 [ RunTime:0.000624s ]
+[ sql ] [ SQL ] UPDATE `cate`  SET `cateArticles`=1  WHERE  `cateId` = 9 [ RunTime:0.000566s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `article` WHERE  `articleCate` = 11  AND `status` = 1 LIMIT 1 [ RunTime:0.000623s ]
+[ sql ] [ SQL ] UPDATE `cate`  SET `cateArticles`=0  WHERE  `cateId` = 11 [ RunTime:0.140773s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `article` WHERE  `articleCate` = 12  AND `status` = 1 LIMIT 1 [ RunTime:0.000702s ]
+[ sql ] [ SQL ] UPDATE `cate`  SET `cateArticles`=12  WHERE  `cateId` = 12 [ RunTime:0.000452s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `article` WHERE  `articleCate` = 13  AND `status` = 1 LIMIT 1 [ RunTime:0.000515s ]
+[ sql ] [ SQL ] UPDATE `cate`  SET `cateArticles`=1  WHERE  `cateId` = 13 [ RunTime:0.109036s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `article` WHERE  `articleCate` = 14  AND `status` = 1 LIMIT 1 [ RunTime:0.001037s ]
+[ sql ] [ SQL ] UPDATE `cate`  SET `cateArticles`=3  WHERE  `cateId` = 14 [ RunTime:0.104366s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `article` WHERE  `articleCate` = 15  AND `status` = 1 LIMIT 1 [ RunTime:0.000718s ]
+[ sql ] [ SQL ] UPDATE `cate`  SET `cateArticles`=2  WHERE  `cateId` = 15 [ RunTime:0.000571s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `article` WHERE  `articleCate` = 16  AND `status` = 1 LIMIT 1 [ RunTime:0.000738s ]
+[ sql ] [ SQL ] UPDATE `cate`  SET `cateArticles`=0  WHERE  `cateId` = 16 [ RunTime:0.000580s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `article` WHERE  `articleCate` = 17  AND `status` = 1 LIMIT 1 [ RunTime:0.000606s ]
+[ sql ] [ SQL ] UPDATE `cate`  SET `cateArticles`=0  WHERE  `cateId` = 17 [ RunTime:0.000503s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `article` WHERE  `articleCate` = 18  AND `status` = 1 LIMIT 1 [ RunTime:0.000588s ]
+[ sql ] [ SQL ] UPDATE `cate`  SET `cateArticles`=0  WHERE  `cateId` = 18 [ RunTime:0.000501s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000619s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:06:25+08:00 ] ::1 ::1 GET /blog/admin/flink/flink.html
+[ info ] localhost/blog/admin/flink/flink.html [运行时间：0.278179s][吞吐率：3.59req/s] [内存消耗：2,884.58kb] [文件加载：60]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'flink',
+    2 => 'flink',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/blog/admin/cate/category.html',
+  'accept-encoding' => 'gzip, deflate, gzip, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Flink->flink[ D:\B\AppServ\www\blog\application\admin\controller\Flink.php ]
+[ info ] [ VIEW ] D:\B\AppServ\www\blog/application/admin\view\flink\flink.html [ array (
+  0 => 'conf',
+  1 => 'fl',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002016s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.001695s ]
+[ sql ] [ SQL ] SELECT * FROM `config` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000703s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `comment` [ RunTime:0.000910s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000414s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin` [ RunTime:0.000916s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `admin` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000326s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.000792s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `article` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000440s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `friendshiplink` [ RunTime:0.000902s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `friendshiplink` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000436s ]
+[ sql ] [ SQL ] select version(); [ RunTime:0.000310s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `friendshiplink` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000527s ]
+[ sql ] [ SQL ] SELECT * FROM `friendshiplink` WHERE  `status` = 1 LIMIT 0,15 [ RunTime:0.000523s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:06:30+08:00 ] ::1 ::1 GET /blog/admin/admin/admin.html
+[ info ] localhost/blog/admin/admin/admin.html [运行时间：0.205835s][吞吐率：4.86req/s] [内存消耗：2,774.63kb] [文件加载：58]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'admin',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/blog/admin/flink/flink.html',
+  'accept-encoding' => 'gzip, deflate, gzip, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Admin->Admin[ D:\B\AppServ\www\blog\application\admin\controller\Admin.php ]
+[ info ] [ VIEW ] D:\B\AppServ\www\blog/application/admin\view\admin\admin.html [ array (
+  0 => 'conf',
+  1 => 'AdminData',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010396s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.001503s ]
+[ sql ] [ SQL ] SELECT * FROM `config` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000706s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `comment` [ RunTime:0.000995s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000515s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin` [ RunTime:0.001076s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `admin` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000420s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.000865s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `article` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000346s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `friendshiplink` [ RunTime:0.000990s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `friendshiplink` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000942s ]
+[ sql ] [ SQL ] select version(); [ RunTime:0.000395s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `admin` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000470s ]
+[ sql ] [ SQL ] SELECT * FROM `admin` WHERE  `status` = 1 LIMIT 0,6 [ RunTime:0.000499s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:06:43+08:00 ] ::1 ::1 GET /blog/admin/user/user.html
+[ info ] localhost/blog/admin/user/user.html [运行时间：0.626183s][吞吐率：1.60req/s] [内存消耗：3,012.99kb] [文件加载：63]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'user',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/blog/admin/admin/admin.html',
+  'accept-encoding' => 'gzip, deflate, gzip, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT file
+[ info ] [ RUN ] app\admin\controller\User->User[ D:\B\AppServ\www\blog\application\admin\controller\User.php ]
+[ info ] [ VIEW ] D:\B\AppServ\www\blog/application/admin\view\user\user.html [ array (
+  0 => 'user',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010676s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.005975s ]
+[ sql ] [ SQL ] SELECT `userId` FROM `user` [ RunTime:0.000515s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.001681s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `article` WHERE  `ator` = 1 LIMIT 1 [ RunTime:0.000764s ]
+[ sql ] [ SQL ] UPDATE `user`  SET `userArticles`=40  WHERE  `userId` = 1 [ RunTime:0.163059s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `article` WHERE  `ator` = 2 LIMIT 1 [ RunTime:0.000642s ]
+[ sql ] [ SQL ] UPDATE `user`  SET `userArticles`=0  WHERE  `userId` = 2 [ RunTime:0.120980s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `user` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000461s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `user` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000520s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `status` = 1 LIMIT 0,10 [ RunTime:0.000567s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:06:50+08:00 ] ::1 ::1 POST /blog/admin/user/statusUser
+[ info ] localhost/blog/admin/user/statusUser [运行时间：0.456891s][吞吐率：2.19req/s] [内存消耗：2,583.37kb] [文件加载：54]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'statusUser',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '17',
+  'accept' => '*/*',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://localhost/blog/admin/user/user.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+  'userId' => '1',
+  'status' => '1',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT file
+[ info ] [ RUN ] app\admin\controller\User->statusUser[ D:\B\AppServ\www\blog\application\admin\controller\User.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011682s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.004257s ]
+[ sql ] [ SQL ] SELECT `userId` FROM `user` [ RunTime:0.000569s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.001185s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `article` WHERE  `ator` = 1 LIMIT 1 [ RunTime:0.000458s ]
+[ sql ] [ SQL ] UPDATE `user`  SET `userArticles`=40  WHERE  `userId` = 1 [ RunTime:0.116386s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `article` WHERE  `ator` = 2 LIMIT 1 [ RunTime:0.000677s ]
+[ sql ] [ SQL ] UPDATE `user`  SET `userArticles`=0  WHERE  `userId` = 2 [ RunTime:0.129054s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `user` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000457s ]
+[ sql ] [ SQL ] UPDATE `user`  SET `status`=0  WHERE  `userId` = 1 [ RunTime:0.143685s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:06:51+08:00 ] ::1 ::1 POST /blog/admin/user/statusUser
+[ info ] localhost/blog/admin/user/statusUser [运行时间：0.432369s][吞吐率：2.31req/s] [内存消耗：2,583.37kb] [文件加载：54]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'statusUser',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '17',
+  'accept' => '*/*',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://localhost/blog/admin/user/user.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+  'userId' => '1',
+  'status' => '0',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT file
+[ info ] [ RUN ] app\admin\controller\User->statusUser[ D:\B\AppServ\www\blog\application\admin\controller\User.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002063s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.005931s ]
+[ sql ] [ SQL ] SELECT `userId` FROM `user` [ RunTime:0.000524s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.001774s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `article` WHERE  `ator` = 1 LIMIT 1 [ RunTime:0.000788s ]
+[ sql ] [ SQL ] UPDATE `user`  SET `userArticles`=40  WHERE  `userId` = 1 [ RunTime:0.135815s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `article` WHERE  `ator` = 2 LIMIT 1 [ RunTime:0.000961s ]
+[ sql ] [ SQL ] UPDATE `user`  SET `userArticles`=0  WHERE  `userId` = 2 [ RunTime:0.097651s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `user` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.001002s ]
+[ sql ] [ SQL ] UPDATE `user`  SET `status`=1  WHERE  `userId` = 1 [ RunTime:0.128719s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:06:54+08:00 ] ::1 ::1 GET /blog/admin/setting/setting.html
+[ info ] localhost/blog/admin/setting/setting.html [运行时间：0.267901s][吞吐率：3.73req/s] [内存消耗：2,781.41kb] [文件加载：57]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'setting',
+    2 => 'setting',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/blog/admin/user/user.html',
+  'accept-encoding' => 'gzip, deflate, gzip, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Setting->setting[ D:\B\AppServ\www\blog\application\admin\controller\Setting.php ]
+[ info ] [ VIEW ] D:\B\AppServ\www\blog/application/admin\view\setting\setting.html [ array (
+  0 => 'conf',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011876s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.001741s ]
+[ sql ] [ SQL ] SELECT * FROM `config` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000760s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `comment` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `comment` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000475s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin` [ RunTime:0.000920s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `admin` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000481s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.001202s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `article` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.000569s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `friendshiplink` [ RunTime:0.001554s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `friendshiplink` WHERE  `status` = 1 LIMIT 1 [ RunTime:0.001403s ]
+[ sql ] [ SQL ] select version(); [ RunTime:0.000480s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:07:07+08:00 ] ::1 ::1 GET /blog/re
+[ info ] localhost/blog/re [运行时间：0.251666s][吞吐率：3.97req/s] [内存消耗：2,845.63kb] [文件加载：55]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 'index/re/re/index',
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/blog/log',
+  'accept-encoding' => 'gzip, deflate, gzip, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Re->re[ D:\B\AppServ\www\blog\application\index\controller\Re.php ]
+[ info ] [ VIEW ] D:\B\AppServ\www\blog/application/index\view\re\re.html [ array (
+  0 => 'conf',
+  1 => 'cate',
+  2 => 'about',
+  3 => 'heatArticles',
+  4 => 'newArticles',
+  5 => 'praiseArticles',
+  6 => 'friendshiplink',
+  7 => 'tags',
+  8 => 'message',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001350s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.001361s ]
+[ sql ] [ SQL ] SELECT * FROM `config` LIMIT 1 [ RunTime:0.000580s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cate` [ RunTime:0.000902s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000473s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `aboutme` [ RunTime:0.000900s ]
+[ sql ] [ SQL ] SELECT * FROM `aboutme` WHERE  `meId` = 1 LIMIT 1 [ RunTime:0.000561s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.000880s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY articleClicks desc LIMIT 5 [ RunTime:0.000632s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY addTime desc LIMIT 5 [ RunTime:0.000593s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY praiseClicks desc LIMIT 5 [ RunTime:0.000656s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `friendshiplink` [ RunTime:0.001184s ]
+[ sql ] [ SQL ] SELECT * FROM `friendshiplink` WHERE  `status` = 1 [ RunTime:0.000479s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `articleTags` FROM `article` WHERE  `status` = 1 [ RunTime:0.000585s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.000844s ]
+[ sql ] [ SQL ] SELECT `m`.*,`u`.`userName` FROM `message` `m` INNER JOIN `user` `u` ON `u`.`userId`=`m`.`messageAtor` WHERE  `m`.`status` = 1 LIMIT 5 [ RunTime:0.000495s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000485s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:07:24+08:00 ] ::1 ::1 GET /blog/log
+[ info ] localhost/blog/log [运行时间：0.088818s][吞吐率：11.26req/s] [内存消耗：2,854.59kb] [文件加载：55]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 'index/log/log/index',
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/blog/re',
+  'accept-encoding' => 'gzip, deflate, gzip, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Log->log[ D:\B\AppServ\www\blog\application\index\controller\Log.php ]
+[ info ] [ VIEW ] D:\B\AppServ\www\blog/application/index\view\log\log.html [ array (
+  0 => 'conf',
+  1 => 'cate',
+  2 => 'about',
+  3 => 'heatArticles',
+  4 => 'newArticles',
+  5 => 'praiseArticles',
+  6 => 'friendshiplink',
+  7 => 'tags',
+  8 => 'message',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011950s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.001548s ]
+[ sql ] [ SQL ] SELECT * FROM `config` LIMIT 1 [ RunTime:0.000686s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cate` [ RunTime:0.003960s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000604s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `aboutme` [ RunTime:0.004086s ]
+[ sql ] [ SQL ] SELECT * FROM `aboutme` WHERE  `meId` = 1 LIMIT 1 [ RunTime:0.001122s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.001086s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY articleClicks desc LIMIT 5 [ RunTime:0.000865s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY addTime desc LIMIT 5 [ RunTime:0.000824s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY praiseClicks desc LIMIT 5 [ RunTime:0.000832s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `friendshiplink` [ RunTime:0.000986s ]
+[ sql ] [ SQL ] SELECT * FROM `friendshiplink` WHERE  `status` = 1 [ RunTime:0.000394s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `articleTags` FROM `article` WHERE  `status` = 1 [ RunTime:0.000516s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.003320s ]
+[ sql ] [ SQL ] SELECT `m`.*,`u`.`userName` FROM `message` `m` INNER JOIN `user` `u` ON `u`.`userId`=`m`.`messageAtor` WHERE  `m`.`status` = 1 LIMIT 5 [ RunTime:0.003703s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000658s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:07:24+08:00 ] ::1 ::1 GET /blog/captcha.html
+[ info ] localhost/blog/captcha.html [运行时间：0.039431s][吞吐率：25.36req/s] [内存消耗：1,464.10kb] [文件加载：39]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\captcha\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'accept' => 'image/webp,image/*,*/*;q=0.8',
+  'referer' => 'http://localhost/blog/log',
+  'accept-encoding' => 'gzip, deflate, gzip, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+  'id' => NULL,
+)
+[ info ] [ RUN ] think\captcha\CaptchaController->index[ D:\B\AppServ\www\blog\vendor\topthink\think-captcha\src\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-04-20T15:07:40+08:00 ] ::1 ::1 POST /blog/index/log/log
+[ info ] localhost/blog/index/log/log [运行时间：0.584311s][吞吐率：1.71req/s] [内存消耗：3,161.81kb] [文件加载：55]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'log',
+    2 => 'log',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '52',
+  'accept' => '*/*',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://localhost/blog/log',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+  'userName' => '18615760807',
+  'userPassword' => 'hk000520',
+  'code' => 'MT68',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Log->log[ D:\B\AppServ\www\blog\application\index\controller\Log.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012235s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.002780s ]
+[ sql ] [ SQL ] SELECT * FROM `config` LIMIT 1 [ RunTime:0.001111s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cate` [ RunTime:0.006114s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000772s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `aboutme` [ RunTime:0.006357s ]
+[ sql ] [ SQL ] SELECT * FROM `aboutme` WHERE  `meId` = 1 LIMIT 1 [ RunTime:0.000951s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.001441s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY articleClicks desc LIMIT 5 [ RunTime:0.000947s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY addTime desc LIMIT 5 [ RunTime:0.001049s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY praiseClicks desc LIMIT 5 [ RunTime:0.001021s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `friendshiplink` [ RunTime:0.001444s ]
+[ sql ] [ SQL ] SELECT * FROM `friendshiplink` WHERE  `status` = 1 [ RunTime:0.000790s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `articleTags` FROM `article` WHERE  `status` = 1 [ RunTime:0.001892s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.005385s ]
+[ sql ] [ SQL ] SELECT `m`.*,`u`.`userName` FROM `message` `m` INNER JOIN `user` `u` ON `u`.`userId`=`m`.`messageAtor` WHERE  `m`.`status` = 1 LIMIT 5 [ RunTime:0.004244s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000700s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.000871s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `userName` = '18615760807' LIMIT 1 [ RunTime:0.000397s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `contactNumber` = 18615760807 LIMIT 1 [ RunTime:0.000357s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `contactNumber` = 18615760807 LIMIT 1 [ RunTime:0.000632s ]
+[ sql ] [ SQL ] UPDATE `user`  SET `lastLoginTime`='2018-04-20 15:07:40'  WHERE  `contactNumber` = 18615760807 [ RunTime:0.208264s ]
+[ sql ] [ SQL ] UPDATE `user`  SET `numberOfLogin`=numberOfLogin+1  WHERE  `contactNumber` = 18615760807 [ RunTime:0.087614s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `userlog` [ RunTime:0.031930s ]
+[ sql ] [ SQL ] INSERT INTO `userlog` (`uid` , `operation` , `operationStatus` , `info` , `IP`) VALUES (1 , '登陆' , 1 , '登录成功!' , '0.0.0.0') [ RunTime:0.076594s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:07:42+08:00 ] ::1 ::1 GET /blog/home
+[ info ] localhost/blog/home [运行时间：0.194951s][吞吐率：5.13req/s] [内存消耗：2,936.70kb] [文件加载：55]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 'index/index/index/index',
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/blog/log',
+  'accept-encoding' => 'gzip, deflate, gzip, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\B\AppServ\www\blog\application\index\controller\Index.php ]
+[ info ] [ VIEW ] D:\B\AppServ\www\blog/application/index\view\index\index.html [ array (
+  0 => 'conf',
+  1 => 'cate',
+  2 => 'about',
+  3 => 'heatArticles',
+  4 => 'newArticles',
+  5 => 'praiseArticles',
+  6 => 'friendshiplink',
+  7 => 'tags',
+  8 => 'message',
+  9 => 'slider',
+) ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011488s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.004606s ]
+[ sql ] [ SQL ] SELECT * FROM `config` LIMIT 1 [ RunTime:0.000702s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cate` [ RunTime:0.001203s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000676s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `aboutme` [ RunTime:0.003542s ]
+[ sql ] [ SQL ] SELECT * FROM `aboutme` WHERE  `meId` = 1 LIMIT 1 [ RunTime:0.001128s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.001511s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY articleClicks desc LIMIT 5 [ RunTime:0.001014s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY addTime desc LIMIT 5 [ RunTime:0.001114s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY praiseClicks desc LIMIT 5 [ RunTime:0.000982s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `friendshiplink` [ RunTime:0.004305s ]
+[ sql ] [ SQL ] SELECT * FROM `friendshiplink` WHERE  `status` = 1 [ RunTime:0.000543s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `articleTags` FROM `article` WHERE  `status` = 1 [ RunTime:0.000734s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.006832s ]
+[ sql ] [ SQL ] SELECT `m`.*,`u`.`userName` FROM `message` `m` INNER JOIN `user` `u` ON `u`.`userId`=`m`.`messageAtor` WHERE  `m`.`status` = 1 LIMIT 5 [ RunTime:0.000920s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000850s ]
+[ sql ] [ SQL ] SELECT `a`.*,`u`.`userName`,`c`.`cateName`,`c`.`cateId` FROM `article` `a` INNER JOIN `user` `u` ON `a`.`ator`=`u`.`userId` INNER JOIN `cate` `c` ON `a`.`articleCate`=`c`.`cateId` WHERE  `a`.`status` = 1  AND `a`.`slider` = 1 ORDER BY a.addTime asc LIMIT 5 [ RunTime:0.002686s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:07:43+08:00 ] ::1 ::1 GET /blog/index/index/time.html
+[ info ] localhost/blog/index/index/time.html [运行时间：0.125483s][吞吐率：7.97req/s] [内存消耗：2,774.70kb] [文件加载：54]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'time',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/blog/home',
+  'accept-encoding' => 'gzip, deflate, gzip, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->time[ D:\B\AppServ\www\blog\application\index\controller\Index.php ]
+[ info ] [ VIEW ] D:\B\AppServ\www\blog/application/index\view\index\time.html [ array (
+  0 => 'conf',
+  1 => 'cate',
+  2 => 'about',
+  3 => 'heatArticles',
+  4 => 'newArticles',
+  5 => 'praiseArticles',
+  6 => 'friendshiplink',
+  7 => 'tags',
+  8 => 'message',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011840s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.002463s ]
+[ sql ] [ SQL ] SELECT * FROM `config` LIMIT 1 [ RunTime:0.000818s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cate` [ RunTime:0.005649s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.001321s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `aboutme` [ RunTime:0.006591s ]
+[ sql ] [ SQL ] SELECT * FROM `aboutme` WHERE  `meId` = 1 LIMIT 1 [ RunTime:0.000841s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.001818s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY articleClicks desc LIMIT 5 [ RunTime:0.001047s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY addTime desc LIMIT 5 [ RunTime:0.001314s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY praiseClicks desc LIMIT 5 [ RunTime:0.001358s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `friendshiplink` [ RunTime:0.001543s ]
+[ sql ] [ SQL ] SELECT * FROM `friendshiplink` WHERE  `status` = 1 [ RunTime:0.000650s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `articleTags` FROM `article` WHERE  `status` = 1 [ RunTime:0.000822s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.006496s ]
+[ sql ] [ SQL ] SELECT `m`.*,`u`.`userName` FROM `message` `m` INNER JOIN `user` `u` ON `u`.`userId`=`m`.`messageAtor` WHERE  `m`.`status` = 1 LIMIT 5 [ RunTime:0.004946s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000771s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:07:43+08:00 ] ::1 ::1 GET /blog/index/index/flow?page=1
+[ info ] localhost/blog/index/index/flow?page=1 [运行时间：0.091491s][吞吐率：10.93req/s] [内存消耗：3,131.66kb] [文件加载：55]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'flow',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'accept' => '*/*',
+  'referer' => 'http://localhost/blog/home',
+  'accept-encoding' => 'gzip, deflate, gzip, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->flow[ D:\B\AppServ\www\blog\application\index\controller\Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001414s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.002668s ]
+[ sql ] [ SQL ] SELECT * FROM `config` LIMIT 1 [ RunTime:0.000809s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cate` [ RunTime:0.003373s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000618s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `aboutme` [ RunTime:0.004472s ]
+[ sql ] [ SQL ] SELECT * FROM `aboutme` WHERE  `meId` = 1 LIMIT 1 [ RunTime:0.000635s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.001969s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY articleClicks desc LIMIT 5 [ RunTime:0.000973s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY addTime desc LIMIT 5 [ RunTime:0.000846s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY praiseClicks desc LIMIT 5 [ RunTime:0.000740s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `friendshiplink` [ RunTime:0.001103s ]
+[ sql ] [ SQL ] SELECT * FROM `friendshiplink` WHERE  `status` = 1 [ RunTime:0.000566s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `articleTags` FROM `article` WHERE  `status` = 1 [ RunTime:0.000670s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.003091s ]
+[ sql ] [ SQL ] SELECT `m`.*,`u`.`userName` FROM `message` `m` INNER JOIN `user` `u` ON `u`.`userId`=`m`.`messageAtor` WHERE  `m`.`status` = 1 LIMIT 5 [ RunTime:0.002991s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000476s ]
+[ sql ] [ SQL ] SELECT `a`.*,`u`.`userName`,`c`.`cateName`,`c`.`cateId` FROM `article` `a` INNER JOIN `user` `u` ON `a`.`ator`=`u`.`userId` INNER JOIN `cate` `c` ON `a`.`articleCate`=`c`.`cateId` WHERE  `a`.`status` = 1 LIMIT 0,13 [ RunTime:0.001285s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:08:03+08:00 ] ::1 ::1 GET /blog/index/index/flow?page=2
+[ info ] localhost/blog/index/index/flow?page=2 [运行时间：0.087023s][吞吐率：11.49req/s] [内存消耗：3,132.93kb] [文件加载：55]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'flow',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'accept' => '*/*',
+  'referer' => 'http://localhost/blog/home',
+  'accept-encoding' => 'gzip, deflate, gzip, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+  'page' => '2',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->flow[ D:\B\AppServ\www\blog\application\index\controller\Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001371s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.000975s ]
+[ sql ] [ SQL ] SELECT * FROM `config` LIMIT 1 [ RunTime:0.000498s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cate` [ RunTime:0.002701s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000493s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `aboutme` [ RunTime:0.002902s ]
+[ sql ] [ SQL ] SELECT * FROM `aboutme` WHERE  `meId` = 1 LIMIT 1 [ RunTime:0.000541s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.000949s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY articleClicks desc LIMIT 5 [ RunTime:0.000701s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY addTime desc LIMIT 5 [ RunTime:0.000655s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY praiseClicks desc LIMIT 5 [ RunTime:0.000752s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `friendshiplink` [ RunTime:0.000909s ]
+[ sql ] [ SQL ] SELECT * FROM `friendshiplink` WHERE  `status` = 1 [ RunTime:0.000337s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `articleTags` FROM `article` WHERE  `status` = 1 [ RunTime:0.000456s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.002494s ]
+[ sql ] [ SQL ] SELECT `m`.*,`u`.`userName` FROM `message` `m` INNER JOIN `user` `u` ON `u`.`userId`=`m`.`messageAtor` WHERE  `m`.`status` = 1 LIMIT 5 [ RunTime:0.002260s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000376s ]
+[ sql ] [ SQL ] SELECT `a`.*,`u`.`userName`,`c`.`cateName`,`c`.`cateId` FROM `article` `a` INNER JOIN `user` `u` ON `a`.`ator`=`u`.`userId` INNER JOIN `cate` `c` ON `a`.`articleCate`=`c`.`cateId` WHERE  `a`.`status` = 1 LIMIT 12,13 [ RunTime:0.001082s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:08:09+08:00 ] ::1 ::1 GET /blog/artlist
+[ info ] localhost/blog/artlist [运行时间：0.221428s][吞吐率：4.52req/s] [内存消耗：3,208.03kb] [文件加载：58]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 'index/article/artlist/index',
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/blog/home',
+  'accept-encoding' => 'gzip, deflate, gzip, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Article->artlist[ D:\B\AppServ\www\blog\application\index\controller\Article.php ]
+[ info ] [ VIEW ] D:\B\AppServ\www\blog/application/index\view\article\artlist.html [ array (
+  0 => 'conf',
+  1 => 'cate',
+  2 => 'about',
+  3 => 'heatArticles',
+  4 => 'newArticles',
+  5 => 'praiseArticles',
+  6 => 'friendshiplink',
+  7 => 'tags',
+  8 => 'message',
+  9 => 'n',
+  10 => 'art',
+) ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011414s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.001258s ]
+[ sql ] [ SQL ] SELECT * FROM `config` LIMIT 1 [ RunTime:0.000622s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cate` [ RunTime:0.000990s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000559s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `aboutme` [ RunTime:0.000913s ]
+[ sql ] [ SQL ] SELECT * FROM `aboutme` WHERE  `meId` = 1 LIMIT 1 [ RunTime:0.000555s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.000914s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY articleClicks desc LIMIT 5 [ RunTime:0.000720s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY addTime desc LIMIT 5 [ RunTime:0.000618s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY praiseClicks desc LIMIT 5 [ RunTime:0.000578s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `friendshiplink` [ RunTime:0.000781s ]
+[ sql ] [ SQL ] SELECT * FROM `friendshiplink` WHERE  `status` = 1 [ RunTime:0.000328s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `articleTags` FROM `article` WHERE  `status` = 1 [ RunTime:0.000451s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.000748s ]
+[ sql ] [ SQL ] SELECT `m`.*,`u`.`userName` FROM `message` `m` INNER JOIN `user` `u` ON `u`.`userId`=`m`.`messageAtor` WHERE  `m`.`status` = 1 LIMIT 5 [ RunTime:0.000506s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000489s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `article` `a` INNER JOIN `cate` `c` ON `a`.`articleCate`=`c`.`cateId` INNER JOIN `user` `u` ON `a`.`ator`=`u`.`userId` WHERE  `a`.`status` = 1 LIMIT 1 [ RunTime:0.000651s ]
+[ sql ] [ SQL ] SELECT `a`.*,`u`.`userName`,`c`.`cateName` FROM `article` `a` INNER JOIN `cate` `c` ON `a`.`articleCate`=`c`.`cateId` INNER JOIN `user` `u` ON `a`.`ator`=`u`.`userId` WHERE  `a`.`status` = 1 ORDER BY addtime desc LIMIT 0,13 [ RunTime:0.002283s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:08:09+08:00 ] ::1 ::1 GET /blog/index/index/time.html
+[ info ] localhost/blog/index/index/time.html [运行时间：0.112485s][吞吐率：8.89req/s] [内存消耗：2,774.77kb] [文件加载：54]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'time',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/blog/artlist',
+  'accept-encoding' => 'gzip, deflate, gzip, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->time[ D:\B\AppServ\www\blog\application\index\controller\Index.php ]
+[ info ] [ VIEW ] D:\B\AppServ\www\blog/application/index\view\index\time.html [ array (
+  0 => 'conf',
+  1 => 'cate',
+  2 => 'about',
+  3 => 'heatArticles',
+  4 => 'newArticles',
+  5 => 'praiseArticles',
+  6 => 'friendshiplink',
+  7 => 'tags',
+  8 => 'message',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002253s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.002026s ]
+[ sql ] [ SQL ] SELECT * FROM `config` LIMIT 1 [ RunTime:0.000919s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cate` [ RunTime:0.001411s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000774s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `aboutme` [ RunTime:0.001902s ]
+[ sql ] [ SQL ] SELECT * FROM `aboutme` WHERE  `meId` = 1 LIMIT 1 [ RunTime:0.000743s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.001402s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY articleClicks desc LIMIT 5 [ RunTime:0.000905s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY addTime desc LIMIT 5 [ RunTime:0.001050s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY praiseClicks desc LIMIT 5 [ RunTime:0.001207s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `friendshiplink` [ RunTime:0.001325s ]
+[ sql ] [ SQL ] SELECT * FROM `friendshiplink` WHERE  `status` = 1 [ RunTime:0.000674s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `articleTags` FROM `article` WHERE  `status` = 1 [ RunTime:0.000876s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.001115s ]
+[ sql ] [ SQL ] SELECT `m`.*,`u`.`userName` FROM `message` `m` INNER JOIN `user` `u` ON `u`.`userId`=`m`.`messageAtor` WHERE  `m`.`status` = 1 LIMIT 5 [ RunTime:0.000791s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000746s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:08:15+08:00 ] ::1 ::1 GET /blog/mood
+[ info ] localhost/blog/mood [运行时间：0.167399s][吞吐率：5.97req/s] [内存消耗：2,891.41kb] [文件加载：55]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 'index/mood/mood/index',
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/blog/artlist',
+  'accept-encoding' => 'gzip, deflate, gzip, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Mood->mood[ D:\B\AppServ\www\blog\application\index\controller\Mood.php ]
+[ info ] [ VIEW ] D:\B\AppServ\www\blog/application/index\view\mood\mood.html [ array (
+  0 => 'conf',
+  1 => 'cate',
+  2 => 'about',
+  3 => 'heatArticles',
+  4 => 'newArticles',
+  5 => 'praiseArticles',
+  6 => 'friendshiplink',
+  7 => 'tags',
+  8 => 'message',
+  9 => 'mood',
+) ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011282s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.001228s ]
+[ sql ] [ SQL ] SELECT * FROM `config` LIMIT 1 [ RunTime:0.000596s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cate` [ RunTime:0.001025s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000868s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `aboutme` [ RunTime:0.001153s ]
+[ sql ] [ SQL ] SELECT * FROM `aboutme` WHERE  `meId` = 1 LIMIT 1 [ RunTime:0.000625s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.001078s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY articleClicks desc LIMIT 5 [ RunTime:0.000723s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY addTime desc LIMIT 5 [ RunTime:0.000847s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY praiseClicks desc LIMIT 5 [ RunTime:0.000820s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `friendshiplink` [ RunTime:0.001052s ]
+[ sql ] [ SQL ] SELECT * FROM `friendshiplink` WHERE  `status` = 1 [ RunTime:0.000596s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `articleTags` FROM `article` WHERE  `status` = 1 [ RunTime:0.000666s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.001080s ]
+[ sql ] [ SQL ] SELECT `m`.*,`u`.`userName` FROM `message` `m` INNER JOIN `user` `u` ON `u`.`userId`=`m`.`messageAtor` WHERE  `m`.`status` = 1 LIMIT 5 [ RunTime:0.000830s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000617s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mood` [ RunTime:0.004140s ]
+[ sql ] [ SQL ] SELECT * FROM `mood` WHERE  `status` = 1 [ RunTime:0.000441s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:08:15+08:00 ] ::1 ::1 GET /blog/index/index/time.html
+[ info ] localhost/blog/index/index/time.html [运行时间：0.081742s][吞吐率：12.23req/s] [内存消耗：2,774.70kb] [文件加载：54]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'time',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/blog/mood',
+  'accept-encoding' => 'gzip, deflate, gzip, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->time[ D:\B\AppServ\www\blog\application\index\controller\Index.php ]
+[ info ] [ VIEW ] D:\B\AppServ\www\blog/application/index\view\index\time.html [ array (
+  0 => 'conf',
+  1 => 'cate',
+  2 => 'about',
+  3 => 'heatArticles',
+  4 => 'newArticles',
+  5 => 'praiseArticles',
+  6 => 'friendshiplink',
+  7 => 'tags',
+  8 => 'message',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010718s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.001289s ]
+[ sql ] [ SQL ] SELECT * FROM `config` LIMIT 1 [ RunTime:0.000565s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cate` [ RunTime:0.003616s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000611s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `aboutme` [ RunTime:0.003378s ]
+[ sql ] [ SQL ] SELECT * FROM `aboutme` WHERE  `meId` = 1 LIMIT 1 [ RunTime:0.000515s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.000861s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY articleClicks desc LIMIT 5 [ RunTime:0.000587s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY addTime desc LIMIT 5 [ RunTime:0.000661s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY praiseClicks desc LIMIT 5 [ RunTime:0.000629s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `friendshiplink` [ RunTime:0.000808s ]
+[ sql ] [ SQL ] SELECT * FROM `friendshiplink` WHERE  `status` = 1 [ RunTime:0.000411s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `articleTags` FROM `article` WHERE  `status` = 1 [ RunTime:0.000581s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.002962s ]
+[ sql ] [ SQL ] SELECT `m`.*,`u`.`userName` FROM `message` `m` INNER JOIN `user` `u` ON `u`.`userId`=`m`.`messageAtor` WHERE  `m`.`status` = 1 LIMIT 5 [ RunTime:0.002463s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000472s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:08:23+08:00 ] ::1 ::1 GET /blog/imgs
+[ info ] localhost/blog/imgs [运行时间：0.151355s][吞吐率：6.61req/s] [内存消耗：2,819.29kb] [文件加载：55]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 'index/img/img/index',
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/blog/mood',
+  'accept-encoding' => 'gzip, deflate, gzip, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Img->img[ D:\B\AppServ\www\blog\application\index\controller\Img.php ]
+[ info ] [ VIEW ] D:\B\AppServ\www\blog/application/index\view\img\img.html [ array (
+  0 => 'conf',
+  1 => 'cate',
+  2 => 'about',
+  3 => 'heatArticles',
+  4 => 'newArticles',
+  5 => 'praiseArticles',
+  6 => 'friendshiplink',
+  7 => 'tags',
+  8 => 'message',
+) ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010695s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.001087s ]
+[ sql ] [ SQL ] SELECT * FROM `config` LIMIT 1 [ RunTime:0.000519s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cate` [ RunTime:0.002693s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000563s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `aboutme` [ RunTime:0.003098s ]
+[ sql ] [ SQL ] SELECT * FROM `aboutme` WHERE  `meId` = 1 LIMIT 1 [ RunTime:0.000605s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.000971s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY articleClicks desc LIMIT 5 [ RunTime:0.000595s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY addTime desc LIMIT 5 [ RunTime:0.000723s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY praiseClicks desc LIMIT 5 [ RunTime:0.000747s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `friendshiplink` [ RunTime:0.000888s ]
+[ sql ] [ SQL ] SELECT * FROM `friendshiplink` WHERE  `status` = 1 [ RunTime:0.000466s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `articleTags` FROM `article` WHERE  `status` = 1 [ RunTime:0.000556s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.003307s ]
+[ sql ] [ SQL ] SELECT `m`.*,`u`.`userName` FROM `message` `m` INNER JOIN `user` `u` ON `u`.`userId`=`m`.`messageAtor` WHERE  `m`.`status` = 1 LIMIT 5 [ RunTime:0.002644s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000474s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:08:23+08:00 ] ::1 ::1 GET /blog/index/index/time.html
+[ info ] localhost/blog/index/index/time.html [运行时间：0.081183s][吞吐率：12.32req/s] [内存消耗：2,774.70kb] [文件加载：54]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'time',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/blog/imgs',
+  'accept-encoding' => 'gzip, deflate, gzip, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->time[ D:\B\AppServ\www\blog\application\index\controller\Index.php ]
+[ info ] [ VIEW ] D:\B\AppServ\www\blog/application/index\view\index\time.html [ array (
+  0 => 'conf',
+  1 => 'cate',
+  2 => 'about',
+  3 => 'heatArticles',
+  4 => 'newArticles',
+  5 => 'praiseArticles',
+  6 => 'friendshiplink',
+  7 => 'tags',
+  8 => 'message',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010341s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.003199s ]
+[ sql ] [ SQL ] SELECT * FROM `config` LIMIT 1 [ RunTime:0.000726s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cate` [ RunTime:0.004101s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000538s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `aboutme` [ RunTime:0.003305s ]
+[ sql ] [ SQL ] SELECT * FROM `aboutme` WHERE  `meId` = 1 LIMIT 1 [ RunTime:0.000581s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.000965s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY articleClicks desc LIMIT 5 [ RunTime:0.001292s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY addTime desc LIMIT 5 [ RunTime:0.000706s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY praiseClicks desc LIMIT 5 [ RunTime:0.000661s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `friendshiplink` [ RunTime:0.001021s ]
+[ sql ] [ SQL ] SELECT * FROM `friendshiplink` WHERE  `status` = 1 [ RunTime:0.000494s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `articleTags` FROM `article` WHERE  `status` = 1 [ RunTime:0.000555s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.003430s ]
+[ sql ] [ SQL ] SELECT `m`.*,`u`.`userName` FROM `message` `m` INNER JOIN `user` `u` ON `u`.`userId`=`m`.`messageAtor` WHERE  `m`.`status` = 1 LIMIT 5 [ RunTime:0.000447s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000402s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:08:23+08:00 ] ::1 ::1 GET /blog/index/img/flow?ipage=1
+[ info ] localhost/blog/index/img/flow?ipage=1 [运行时间：0.091658s][吞吐率：10.91req/s] [内存消耗：2,792.95kb] [文件加载：53]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'img',
+    2 => 'flow',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'accept' => '*/*',
+  'referer' => 'http://localhost/blog/imgs',
+  'accept-encoding' => 'gzip, deflate, gzip, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+  'ipage' => '1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Img->flow[ D:\B\AppServ\www\blog\application\index\controller\Img.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011695s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.001017s ]
+[ sql ] [ SQL ] SELECT * FROM `config` LIMIT 1 [ RunTime:0.000584s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cate` [ RunTime:0.002536s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000567s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `aboutme` [ RunTime:0.002631s ]
+[ sql ] [ SQL ] SELECT * FROM `aboutme` WHERE  `meId` = 1 LIMIT 1 [ RunTime:0.000610s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.000789s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY articleClicks desc LIMIT 5 [ RunTime:0.000496s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY addTime desc LIMIT 5 [ RunTime:0.000608s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY praiseClicks desc LIMIT 5 [ RunTime:0.000566s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `friendshiplink` [ RunTime:0.000928s ]
+[ sql ] [ SQL ] SELECT * FROM `friendshiplink` WHERE  `status` = 1 [ RunTime:0.000497s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `articleTags` FROM `article` WHERE  `status` = 1 [ RunTime:0.000474s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.002498s ]
+[ sql ] [ SQL ] SELECT `m`.*,`u`.`userName` FROM `message` `m` INNER JOIN `user` `u` ON `u`.`userId`=`m`.`messageAtor` WHERE  `m`.`status` = 1 LIMIT 5 [ RunTime:0.000406s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000445s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `imgs` [ RunTime:0.002790s ]
+[ sql ] [ SQL ] SELECT * FROM `imgs` WHERE  `status` = 1 LIMIT 0,21 [ RunTime:0.000489s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:08:30+08:00 ] ::1 ::1 GET /blog/index/img/flow?ipage=2
+[ info ] localhost/blog/index/img/flow?ipage=2 [运行时间：0.131019s][吞吐率：7.63req/s] [内存消耗：2,792.95kb] [文件加载：53]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'img',
+    2 => 'flow',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'accept' => '*/*',
+  'referer' => 'http://localhost/blog/imgs',
+  'accept-encoding' => 'gzip, deflate, gzip, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+  'ipage' => '2',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Img->flow[ D:\B\AppServ\www\blog\application\index\controller\Img.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002133s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.001646s ]
+[ sql ] [ SQL ] SELECT * FROM `config` LIMIT 1 [ RunTime:0.001078s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cate` [ RunTime:0.009229s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000901s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `aboutme` [ RunTime:0.006501s ]
+[ sql ] [ SQL ] SELECT * FROM `aboutme` WHERE  `meId` = 1 LIMIT 1 [ RunTime:0.001338s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.002617s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY articleClicks desc LIMIT 5 [ RunTime:0.001049s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY addTime desc LIMIT 5 [ RunTime:0.000888s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY praiseClicks desc LIMIT 5 [ RunTime:0.001055s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `friendshiplink` [ RunTime:0.001552s ]
+[ sql ] [ SQL ] SELECT * FROM `friendshiplink` WHERE  `status` = 1 [ RunTime:0.001707s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `articleTags` FROM `article` WHERE  `status` = 1 [ RunTime:0.000938s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.007054s ]
+[ sql ] [ SQL ] SELECT `m`.*,`u`.`userName` FROM `message` `m` INNER JOIN `user` `u` ON `u`.`userId`=`m`.`messageAtor` WHERE  `m`.`status` = 1 LIMIT 5 [ RunTime:0.000744s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000646s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `imgs` [ RunTime:0.006780s ]
+[ sql ] [ SQL ] SELECT * FROM `imgs` WHERE  `status` = 1 LIMIT 20,21 [ RunTime:0.000855s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:08:31+08:00 ] ::1 ::1 GET /blog/index/img/flow?ipage=3
+[ info ] localhost/blog/index/img/flow?ipage=3 [运行时间：0.141619s][吞吐率：7.06req/s] [内存消耗：2,792.95kb] [文件加载：53]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'img',
+    2 => 'flow',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'accept' => '*/*',
+  'referer' => 'http://localhost/blog/imgs',
+  'accept-encoding' => 'gzip, deflate, gzip, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+  'ipage' => '3',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Img->flow[ D:\B\AppServ\www\blog\application\index\controller\Img.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001815s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.001266s ]
+[ sql ] [ SQL ] SELECT * FROM `config` LIMIT 1 [ RunTime:0.001129s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cate` [ RunTime:0.007622s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000752s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `aboutme` [ RunTime:0.004164s ]
+[ sql ] [ SQL ] SELECT * FROM `aboutme` WHERE  `meId` = 1 LIMIT 1 [ RunTime:0.000673s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.003240s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY articleClicks desc LIMIT 5 [ RunTime:0.001180s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY addTime desc LIMIT 5 [ RunTime:0.000929s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY praiseClicks desc LIMIT 5 [ RunTime:0.000749s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `friendshiplink` [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT * FROM `friendshiplink` WHERE  `status` = 1 [ RunTime:0.000396s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `articleTags` FROM `article` WHERE  `status` = 1 [ RunTime:0.000456s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.004266s ]
+[ sql ] [ SQL ] SELECT `m`.*,`u`.`userName` FROM `message` `m` INNER JOIN `user` `u` ON `u`.`userId`=`m`.`messageAtor` WHERE  `m`.`status` = 1 LIMIT 5 [ RunTime:0.004862s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000534s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `imgs` [ RunTime:0.003634s ]
+[ sql ] [ SQL ] SELECT * FROM `imgs` WHERE  `status` = 1 LIMIT 40,21 [ RunTime:0.000510s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:08:32+08:00 ] ::1 ::1 GET /blog/index/img/flow?ipage=4
+[ info ] localhost/blog/index/img/flow?ipage=4 [运行时间：0.113506s][吞吐率：8.81req/s] [内存消耗：2,792.95kb] [文件加载：53]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'img',
+    2 => 'flow',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'accept' => '*/*',
+  'referer' => 'http://localhost/blog/imgs',
+  'accept-encoding' => 'gzip, deflate, gzip, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+  'ipage' => '4',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Img->flow[ D:\B\AppServ\www\blog\application\index\controller\Img.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002727s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.001500s ]
+[ sql ] [ SQL ] SELECT * FROM `config` LIMIT 1 [ RunTime:0.000565s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cate` [ RunTime:0.001005s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000583s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `aboutme` [ RunTime:0.001201s ]
+[ sql ] [ SQL ] SELECT * FROM `aboutme` WHERE  `meId` = 1 LIMIT 1 [ RunTime:0.001747s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.001885s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY articleClicks desc LIMIT 5 [ RunTime:0.001352s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY addTime desc LIMIT 5 [ RunTime:0.001070s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY praiseClicks desc LIMIT 5 [ RunTime:0.000955s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `friendshiplink` [ RunTime:0.001224s ]
+[ sql ] [ SQL ] SELECT * FROM `friendshiplink` WHERE  `status` = 1 [ RunTime:0.000510s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `articleTags` FROM `article` WHERE  `status` = 1 [ RunTime:0.001012s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.001932s ]
+[ sql ] [ SQL ] SELECT `m`.*,`u`.`userName` FROM `message` `m` INNER JOIN `user` `u` ON `u`.`userId`=`m`.`messageAtor` WHERE  `m`.`status` = 1 LIMIT 5 [ RunTime:0.000749s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.001036s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `imgs` [ RunTime:0.003672s ]
+[ sql ] [ SQL ] SELECT * FROM `imgs` WHERE  `status` = 1 LIMIT 60,21 [ RunTime:0.001935s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:08:33+08:00 ] ::1 ::1 GET /blog/index/img/flow?ipage=5
+[ info ] localhost/blog/index/img/flow?ipage=5 [运行时间：0.152429s][吞吐率：6.56req/s] [内存消耗：2,792.95kb] [文件加载：53]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'img',
+    2 => 'flow',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'accept' => '*/*',
+  'referer' => 'http://localhost/blog/imgs',
+  'accept-encoding' => 'gzip, deflate, gzip, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+  'ipage' => '5',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Img->flow[ D:\B\AppServ\www\blog\application\index\controller\Img.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001816s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.001641s ]
+[ sql ] [ SQL ] SELECT * FROM `config` LIMIT 1 [ RunTime:0.000962s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cate` [ RunTime:0.001395s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000735s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `aboutme` [ RunTime:0.001342s ]
+[ sql ] [ SQL ] SELECT * FROM `aboutme` WHERE  `meId` = 1 LIMIT 1 [ RunTime:0.000593s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.001224s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY articleClicks desc LIMIT 5 [ RunTime:0.001053s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY addTime desc LIMIT 5 [ RunTime:0.000844s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY praiseClicks desc LIMIT 5 [ RunTime:0.000783s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `friendshiplink` [ RunTime:0.000805s ]
+[ sql ] [ SQL ] SELECT * FROM `friendshiplink` WHERE  `status` = 1 [ RunTime:0.000305s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `articleTags` FROM `article` WHERE  `status` = 1 [ RunTime:0.000699s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.003732s ]
+[ sql ] [ SQL ] SELECT `m`.*,`u`.`userName` FROM `message` `m` INNER JOIN `user` `u` ON `u`.`userId`=`m`.`messageAtor` WHERE  `m`.`status` = 1 LIMIT 5 [ RunTime:0.001120s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.001201s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `imgs` [ RunTime:0.007310s ]
+[ sql ] [ SQL ] SELECT * FROM `imgs` WHERE  `status` = 1 LIMIT 80,21 [ RunTime:0.001258s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:08:35+08:00 ] ::1 ::1 GET /blog/message
+[ info ] localhost/blog/message [运行时间：0.576579s][吞吐率：1.73req/s] [内存消耗：2,855.48kb] [文件加载：55]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 'index/message/message/index',
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/blog/imgs',
+  'accept-encoding' => 'gzip, deflate, gzip, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Message->message[ D:\B\AppServ\www\blog\application\index\controller\Message.php ]
+[ info ] [ VIEW ] D:\B\AppServ\www\blog/application/index\view\message\message.html [ array (
+  0 => 'conf',
+  1 => 'cate',
+  2 => 'about',
+  3 => 'heatArticles',
+  4 => 'newArticles',
+  5 => 'praiseArticles',
+  6 => 'friendshiplink',
+  7 => 'tags',
+  8 => 'message',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011445s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.002116s ]
+[ sql ] [ SQL ] SELECT * FROM `config` LIMIT 1 [ RunTime:0.000875s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cate` [ RunTime:0.001218s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000714s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `aboutme` [ RunTime:0.001302s ]
+[ sql ] [ SQL ] SELECT * FROM `aboutme` WHERE  `meId` = 1 LIMIT 1 [ RunTime:0.000871s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.001456s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY articleClicks desc LIMIT 5 [ RunTime:0.000630s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY addTime desc LIMIT 5 [ RunTime:0.000717s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY praiseClicks desc LIMIT 5 [ RunTime:0.000592s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `friendshiplink` [ RunTime:0.000956s ]
+[ sql ] [ SQL ] SELECT * FROM `friendshiplink` WHERE  `status` = 1 [ RunTime:0.000396s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `articleTags` FROM `article` WHERE  `status` = 1 [ RunTime:0.000525s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.000802s ]
+[ sql ] [ SQL ] SELECT `m`.*,`u`.`userName` FROM `message` `m` INNER JOIN `user` `u` ON `u`.`userId`=`m`.`messageAtor` WHERE  `m`.`status` = 1 ORDER BY addTime desc [ RunTime:0.000534s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000500s ]
+[ sql ] [ SQL ] SELECT `m`.*,`u`.`userName` FROM `message` `m` INNER JOIN `user` `u` ON `u`.`userId`=`m`.`messageAtor` WHERE  `m`.`status` = 1 ORDER BY addTime desc [ RunTime:0.000519s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:08:35+08:00 ] ::1 ::1 GET /blog/index/index/time.html
+[ info ] localhost/blog/index/index/time.html [运行时间：0.107804s][吞吐率：9.28req/s] [内存消耗：2,774.77kb] [文件加载：54]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'time',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/blog/message',
+  'accept-encoding' => 'gzip, deflate, gzip, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->time[ D:\B\AppServ\www\blog\application\index\controller\Index.php ]
+[ info ] [ VIEW ] D:\B\AppServ\www\blog/application/index\view\index\time.html [ array (
+  0 => 'conf',
+  1 => 'cate',
+  2 => 'about',
+  3 => 'heatArticles',
+  4 => 'newArticles',
+  5 => 'praiseArticles',
+  6 => 'friendshiplink',
+  7 => 'tags',
+  8 => 'message',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001885s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.002254s ]
+[ sql ] [ SQL ] SELECT * FROM `config` LIMIT 1 [ RunTime:0.000860s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cate` [ RunTime:0.001390s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000847s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `aboutme` [ RunTime:0.001184s ]
+[ sql ] [ SQL ] SELECT * FROM `aboutme` WHERE  `meId` = 1 LIMIT 1 [ RunTime:0.000771s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.001414s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY articleClicks desc LIMIT 5 [ RunTime:0.000946s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY addTime desc LIMIT 5 [ RunTime:0.001370s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY praiseClicks desc LIMIT 5 [ RunTime:0.000971s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `friendshiplink` [ RunTime:0.001322s ]
+[ sql ] [ SQL ] SELECT * FROM `friendshiplink` WHERE  `status` = 1 [ RunTime:0.000594s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `articleTags` FROM `article` WHERE  `status` = 1 [ RunTime:0.000785s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.001032s ]
+[ sql ] [ SQL ] SELECT `m`.*,`u`.`userName` FROM `message` `m` INNER JOIN `user` `u` ON `u`.`userId`=`m`.`messageAtor` WHERE  `m`.`status` = 1 LIMIT 5 [ RunTime:0.000638s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000642s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:08:50+08:00 ] ::1 ::1 POST /blog/index/message/add
+[ info ] localhost/blog/index/message/add [运行时间：0.244454s][吞吐率：4.09req/s] [内存消耗：2,776.64kb] [文件加载：53]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'message',
+    2 => 'add',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '18',
+  'accept' => '*/*',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://localhost/blog/message',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+  'messageContent' => '111',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Message->add[ D:\B\AppServ\www\blog\application\index\controller\Message.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001289s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.000899s ]
+[ sql ] [ SQL ] SELECT * FROM `config` LIMIT 1 [ RunTime:0.000462s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cate` [ RunTime:0.000730s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000413s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `aboutme` [ RunTime:0.000740s ]
+[ sql ] [ SQL ] SELECT * FROM `aboutme` WHERE  `meId` = 1 LIMIT 1 [ RunTime:0.000450s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.000825s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY articleClicks desc LIMIT 5 [ RunTime:0.000587s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY addTime desc LIMIT 5 [ RunTime:0.000700s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY praiseClicks desc LIMIT 5 [ RunTime:0.000601s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `friendshiplink` [ RunTime:0.000795s ]
+[ sql ] [ SQL ] SELECT * FROM `friendshiplink` WHERE  `status` = 1 [ RunTime:0.000473s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `articleTags` FROM `article` WHERE  `status` = 1 [ RunTime:0.000506s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.001199s ]
+[ sql ] [ SQL ] SELECT `m`.*,`u`.`userName` FROM `message` `m` INNER JOIN `user` `u` ON `u`.`userId`=`m`.`messageAtor` WHERE  `m`.`status` = 1 ORDER BY addTime desc [ RunTime:0.000615s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000521s ]
+[ sql ] [ SQL ] INSERT INTO `message` (`messageContent` , `messageAtor`) VALUES ('111' , 1) [ RunTime:0.175805s ]
+[ sql ] [ SQL ] SELECT `m`.`messageId`,`m`.`addTime`,`u`.`userName` FROM `message` `m` INNER JOIN `user` `u` ON `u`.`userId`=`m`.`messageAtor` WHERE  `m`.`messageAtor` = 1 ORDER BY m.addTime desc LIMIT 1 [ RunTime:0.001023s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:08:55+08:00 ] ::1 ::1 GET /blog/notice
+[ info ] localhost/blog/notice [运行时间：0.104076s][吞吐率：9.61req/s] [内存消耗：2,847.50kb] [文件加载：55]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 'index/notice/notice/index',
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/blog/message',
+  'accept-encoding' => 'gzip, deflate, gzip, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Notice->notice[ D:\B\AppServ\www\blog\application\index\controller\Notice.php ]
+[ info ] [ VIEW ] D:\B\AppServ\www\blog/application/index\view\notice\notice.html [ array (
+  0 => 'conf',
+  1 => 'cate',
+  2 => 'about',
+  3 => 'heatArticles',
+  4 => 'newArticles',
+  5 => 'praiseArticles',
+  6 => 'friendshiplink',
+  7 => 'tags',
+  8 => 'message',
+  9 => 'notice',
+) ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001673s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.001224s ]
+[ sql ] [ SQL ] SELECT * FROM `config` LIMIT 1 [ RunTime:0.000627s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cate` [ RunTime:0.000986s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000645s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `aboutme` [ RunTime:0.001144s ]
+[ sql ] [ SQL ] SELECT * FROM `aboutme` WHERE  `meId` = 1 LIMIT 1 [ RunTime:0.000629s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.001314s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY articleClicks desc LIMIT 5 [ RunTime:0.000682s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY addTime desc LIMIT 5 [ RunTime:0.000859s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY praiseClicks desc LIMIT 5 [ RunTime:0.000754s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `friendshiplink` [ RunTime:0.001080s ]
+[ sql ] [ SQL ] SELECT * FROM `friendshiplink` WHERE  `status` = 1 [ RunTime:0.000622s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `articleTags` FROM `article` WHERE  `status` = 1 [ RunTime:0.000619s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.000982s ]
+[ sql ] [ SQL ] SELECT `m`.*,`u`.`userName` FROM `message` `m` INNER JOIN `user` `u` ON `u`.`userId`=`m`.`messageAtor` WHERE  `m`.`status` = 1 LIMIT 5 [ RunTime:0.000672s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000831s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `notice` [ RunTime:0.004606s ]
+[ sql ] [ SQL ] SELECT * FROM `notice` WHERE  `status` = 1 [ RunTime:0.000917s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:08:55+08:00 ] ::1 ::1 GET /blog/index/index/time.html
+[ info ] localhost/blog/index/index/time.html [运行时间：0.079338s][吞吐率：12.60req/s] [内存消耗：2,774.77kb] [文件加载：54]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'time',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/blog/notice',
+  'accept-encoding' => 'gzip, deflate, gzip, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->time[ D:\B\AppServ\www\blog\application\index\controller\Index.php ]
+[ info ] [ VIEW ] D:\B\AppServ\www\blog/application/index\view\index\time.html [ array (
+  0 => 'conf',
+  1 => 'cate',
+  2 => 'about',
+  3 => 'heatArticles',
+  4 => 'newArticles',
+  5 => 'praiseArticles',
+  6 => 'friendshiplink',
+  7 => 'tags',
+  8 => 'message',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010862s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.001295s ]
+[ sql ] [ SQL ] SELECT * FROM `config` LIMIT 1 [ RunTime:0.000588s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cate` [ RunTime:0.001229s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000582s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `aboutme` [ RunTime:0.001145s ]
+[ sql ] [ SQL ] SELECT * FROM `aboutme` WHERE  `meId` = 1 LIMIT 1 [ RunTime:0.000545s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.001051s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY articleClicks desc LIMIT 5 [ RunTime:0.000702s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY addTime desc LIMIT 5 [ RunTime:0.000719s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY praiseClicks desc LIMIT 5 [ RunTime:0.000852s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `friendshiplink` [ RunTime:0.001280s ]
+[ sql ] [ SQL ] SELECT * FROM `friendshiplink` WHERE  `status` = 1 [ RunTime:0.000633s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `articleTags` FROM `article` WHERE  `status` = 1 [ RunTime:0.000915s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.001089s ]
+[ sql ] [ SQL ] SELECT `m`.*,`u`.`userName` FROM `message` `m` INNER JOIN `user` `u` ON `u`.`userId`=`m`.`messageAtor` WHERE  `m`.`status` = 1 LIMIT 5 [ RunTime:0.001452s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.001152s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:09:01+08:00 ] ::1 ::1 GET /blog/blogger
+[ info ] localhost/blog/blogger [运行时间：0.161265s][吞吐率：6.20req/s] [内存消耗：2,817.73kb] [文件加载：55]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 'index/blogger/blogger/index',
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/blog/notice',
+  'accept-encoding' => 'gzip, deflate, gzip, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Blogger->blogger[ D:\B\AppServ\www\blog\application\index\controller\Blogger.php ]
+[ info ] [ VIEW ] D:\B\AppServ\www\blog/application/index\view\blogger\blogger.html [ array (
+  0 => 'conf',
+  1 => 'cate',
+  2 => 'about',
+  3 => 'heatArticles',
+  4 => 'newArticles',
+  5 => 'praiseArticles',
+  6 => 'friendshiplink',
+  7 => 'tags',
+  8 => 'message',
+) ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002090s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.001963s ]
+[ sql ] [ SQL ] SELECT * FROM `config` LIMIT 1 [ RunTime:0.000816s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cate` [ RunTime:0.001179s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000770s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `aboutme` [ RunTime:0.001399s ]
+[ sql ] [ SQL ] SELECT * FROM `aboutme` WHERE  `meId` = 1 LIMIT 1 [ RunTime:0.000897s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.001878s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY articleClicks desc LIMIT 5 [ RunTime:0.000983s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY addTime desc LIMIT 5 [ RunTime:0.001086s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY praiseClicks desc LIMIT 5 [ RunTime:0.000798s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `friendshiplink` [ RunTime:0.001486s ]
+[ sql ] [ SQL ] SELECT * FROM `friendshiplink` WHERE  `status` = 1 [ RunTime:0.001168s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `articleTags` FROM `article` WHERE  `status` = 1 [ RunTime:0.000832s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.001205s ]
+[ sql ] [ SQL ] SELECT `m`.*,`u`.`userName` FROM `message` `m` INNER JOIN `user` `u` ON `u`.`userId`=`m`.`messageAtor` WHERE  `m`.`status` = 1 LIMIT 5 [ RunTime:0.000764s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000776s ]
+[ sql ] [ SQL ] SELECT `m`.*,`u`.`userName` FROM `message` `m` INNER JOIN `user` `u` ON `u`.`userId`=`m`.`messageAtor` WHERE  `m`.`status` = 1 LIMIT 5 [ RunTime:0.000792s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:09:01+08:00 ] ::1 ::1 GET /blog/index/index/time.html
+[ info ] localhost/blog/index/index/time.html [运行时间：0.063286s][吞吐率：15.80req/s] [内存消耗：2,774.77kb] [文件加载：54]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'time',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/blog/blogger',
+  'accept-encoding' => 'gzip, deflate, gzip, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->time[ D:\B\AppServ\www\blog\application\index\controller\Index.php ]
+[ info ] [ VIEW ] D:\B\AppServ\www\blog/application/index\view\index\time.html [ array (
+  0 => 'conf',
+  1 => 'cate',
+  2 => 'about',
+  3 => 'heatArticles',
+  4 => 'newArticles',
+  5 => 'praiseArticles',
+  6 => 'friendshiplink',
+  7 => 'tags',
+  8 => 'message',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001612s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.001189s ]
+[ sql ] [ SQL ] SELECT * FROM `config` LIMIT 1 [ RunTime:0.000578s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cate` [ RunTime:0.000861s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000466s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `aboutme` [ RunTime:0.000908s ]
+[ sql ] [ SQL ] SELECT * FROM `aboutme` WHERE  `meId` = 1 LIMIT 1 [ RunTime:0.000578s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.000981s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY articleClicks desc LIMIT 5 [ RunTime:0.000656s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY addTime desc LIMIT 5 [ RunTime:0.000688s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY praiseClicks desc LIMIT 5 [ RunTime:0.000498s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `friendshiplink` [ RunTime:0.000779s ]
+[ sql ] [ SQL ] SELECT * FROM `friendshiplink` WHERE  `status` = 1 [ RunTime:0.000283s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `articleTags` FROM `article` WHERE  `status` = 1 [ RunTime:0.000425s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.000777s ]
+[ sql ] [ SQL ] SELECT `m`.*,`u`.`userName` FROM `message` `m` INNER JOIN `user` `u` ON `u`.`userId`=`m`.`messageAtor` WHERE  `m`.`status` = 1 LIMIT 5 [ RunTime:0.000529s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000335s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:09:16+08:00 ] ::1 ::1 GET /blog/search?k=php
+[ info ] localhost/blog/search?k=php [运行时间：0.244036s][吞吐率：4.10req/s] [内存消耗：2,937.70kb] [文件加载：55]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 'index/index/search/index',
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/blog/blogger',
+  'accept-encoding' => 'gzip, deflate, gzip, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+  'k' => 'php',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->search[ D:\B\AppServ\www\blog\application\index\controller\Index.php ]
+[ info ] [ VIEW ] D:\B\AppServ\www\blog/application/index\view\index\search.html [ array (
+  0 => 'conf',
+  1 => 'cate',
+  2 => 'about',
+  3 => 'heatArticles',
+  4 => 'newArticles',
+  5 => 'praiseArticles',
+  6 => 'friendshiplink',
+  7 => 'tags',
+  8 => 'message',
+  9 => 'search',
+  10 => 'keywords',
+) ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011145s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.000987s ]
+[ sql ] [ SQL ] SELECT * FROM `config` LIMIT 1 [ RunTime:0.000498s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cate` [ RunTime:0.000771s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000542s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `aboutme` [ RunTime:0.000843s ]
+[ sql ] [ SQL ] SELECT * FROM `aboutme` WHERE  `meId` = 1 LIMIT 1 [ RunTime:0.000456s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.000770s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY articleClicks desc LIMIT 5 [ RunTime:0.000472s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY addTime desc LIMIT 5 [ RunTime:0.000635s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY praiseClicks desc LIMIT 5 [ RunTime:0.000651s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `friendshiplink` [ RunTime:0.000769s ]
+[ sql ] [ SQL ] SELECT * FROM `friendshiplink` WHERE  `status` = 1 [ RunTime:0.000445s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `articleTags` FROM `article` WHERE  `status` = 1 [ RunTime:0.000533s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.000727s ]
+[ sql ] [ SQL ] SELECT `m`.*,`u`.`userName` FROM `message` `m` INNER JOIN `user` `u` ON `u`.`userId`=`m`.`messageAtor` WHERE  `m`.`status` = 1 LIMIT 5 [ RunTime:0.000470s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000481s ]
+[ sql ] [ SQL ] SELECT `a`.*,`u`.`userName`,`c`.`cateName` FROM `article` `a` INNER JOIN `user` `u` ON `a`.`ator`=`u`.`userId` INNER JOIN `cate` `c` ON `a`.`articleCate`=`c`.`cateId` WHERE  `a`.`articleTitle` LIKE '%php%' [ RunTime:0.000975s ]
+[ sql ] [ SQL ] SELECT `a`.*,`u`.`userName`,`c`.`cateName` FROM `article` `a` INNER JOIN `user` `u` ON `a`.`ator`=`u`.`userId` INNER JOIN `cate` `c` ON `a`.`articleCate`=`c`.`cateId` WHERE  `a`.`articleCate` LIKE '%php%' [ RunTime:0.000676s ]
+[ sql ] [ SQL ] SELECT `a`.*,`u`.`userName`,`c`.`cateName` FROM `article` `a` INNER JOIN `user` `u` ON `a`.`ator`=`u`.`userId` INNER JOIN `cate` `c` ON `a`.`articleCate`=`c`.`cateId` WHERE  `a`.`articleContent` LIKE '%php%' [ RunTime:0.002734s ]
+[ sql ] [ SQL ] SELECT `a`.*,`u`.`userName`,`c`.`cateName` FROM `article` `a` INNER JOIN `user` `u` ON `a`.`ator`=`u`.`userId` INNER JOIN `cate` `c` ON `a`.`articleCate`=`c`.`cateId` WHERE  `u`.`username` LIKE '%php%' [ RunTime:0.000411s ]
+[ sql ] [ SQL ] SELECT `a`.*,`u`.`userName`,`c`.`cateName` FROM `article` `a` INNER JOIN `user` `u` ON `a`.`ator`=`u`.`userId` INNER JOIN `cate` `c` ON `a`.`articleCate`=`c`.`cateId` WHERE  `a`.`articleDescription` LIKE '%php%' [ RunTime:0.000555s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:09:16+08:00 ] ::1 ::1 GET /blog/index/index/time.html
+[ info ] localhost/blog/index/index/time.html [运行时间：0.064936s][吞吐率：15.40req/s] [内存消耗：2,774.85kb] [文件加载：54]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'time',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/blog/search?k=php',
+  'accept-encoding' => 'gzip, deflate, gzip, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->time[ D:\B\AppServ\www\blog\application\index\controller\Index.php ]
+[ info ] [ VIEW ] D:\B\AppServ\www\blog/application/index\view\index\time.html [ array (
+  0 => 'conf',
+  1 => 'cate',
+  2 => 'about',
+  3 => 'heatArticles',
+  4 => 'newArticles',
+  5 => 'praiseArticles',
+  6 => 'friendshiplink',
+  7 => 'tags',
+  8 => 'message',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010206s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.001133s ]
+[ sql ] [ SQL ] SELECT * FROM `config` LIMIT 1 [ RunTime:0.000453s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cate` [ RunTime:0.000770s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000490s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `aboutme` [ RunTime:0.001024s ]
+[ sql ] [ SQL ] SELECT * FROM `aboutme` WHERE  `meId` = 1 LIMIT 1 [ RunTime:0.000559s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.000937s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY articleClicks desc LIMIT 5 [ RunTime:0.000601s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY addTime desc LIMIT 5 [ RunTime:0.000699s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY praiseClicks desc LIMIT 5 [ RunTime:0.000722s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `friendshiplink` [ RunTime:0.000785s ]
+[ sql ] [ SQL ] SELECT * FROM `friendshiplink` WHERE  `status` = 1 [ RunTime:0.000367s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `articleTags` FROM `article` WHERE  `status` = 1 [ RunTime:0.000455s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.000709s ]
+[ sql ] [ SQL ] SELECT `m`.*,`u`.`userName` FROM `message` `m` INNER JOIN `user` `u` ON `u`.`userId`=`m`.`messageAtor` WHERE  `m`.`status` = 1 LIMIT 5 [ RunTime:0.000415s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000472s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:09:24+08:00 ] ::1 ::1 GET /blog/article?aid=25
+[ info ] localhost/blog/article?aid=25 [运行时间：0.296258s][吞吐率：3.38req/s] [内存消耗：3,068.76kb] [文件加载：58]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 'index/article/article/index',
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/blog/search?k=php',
+  'accept-encoding' => 'gzip, deflate, gzip, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+  'aid' => '25',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Article->article[ D:\B\AppServ\www\blog\application\index\controller\Article.php ]
+[ info ] [ CACHE ] INIT file
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] D:\B\AppServ\www\blog/application/index\view\article\article.html [ array (
+  0 => 'conf',
+  1 => 'cate',
+  2 => 'about',
+  3 => 'heatArticles',
+  4 => 'newArticles',
+  5 => 'praiseArticles',
+  6 => 'friendshiplink',
+  7 => 'tags',
+  8 => 'message',
+  9 => 'comment',
+  10 => 'ad',
+  11 => 'am',
+  12 => 'upA',
+  13 => 'downA',
+  14 => 'cateHeat',
+  15 => 'aid',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011240s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.001010s ]
+[ sql ] [ SQL ] SELECT * FROM `config` LIMIT 1 [ RunTime:0.000411s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cate` [ RunTime:0.000679s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000505s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `aboutme` [ RunTime:0.000946s ]
+[ sql ] [ SQL ] SELECT * FROM `aboutme` WHERE  `meId` = 1 LIMIT 1 [ RunTime:0.000562s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.000879s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY articleClicks desc LIMIT 5 [ RunTime:0.000586s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY addTime desc LIMIT 5 [ RunTime:0.000603s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY praiseClicks desc LIMIT 5 [ RunTime:0.000729s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `friendshiplink` [ RunTime:0.000781s ]
+[ sql ] [ SQL ] SELECT * FROM `friendshiplink` WHERE  `status` = 1 [ RunTime:0.000374s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `articleTags` FROM `article` WHERE  `status` = 1 [ RunTime:0.000441s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.000729s ]
+[ sql ] [ SQL ] SELECT `m`.*,`u`.`userName` FROM `message` `m` INNER JOIN `user` `u` ON `u`.`userId`=`m`.`messageAtor` WHERE  `m`.`status` = 1 LIMIT 5 [ RunTime:0.000460s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000509s ]
+[ sql ] [ SQL ] UPDATE `article`  SET `articleClicks`=articleClicks+1  WHERE  `articleId` = 25 [ RunTime:0.095959s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `comment` [ RunTime:0.001169s ]
+[ sql ] [ SQL ] SELECT `c`.*,`u`.`userName` FROM `comment` `c` INNER JOIN `user` `u` ON `u`.`userId`=`c`.`commentAtor` WHERE  `c`.`status` = 1  AND `c`.`commentArticleid` = '25' ORDER BY addTime desc [ RunTime:0.000695s ]
+[ sql ] [ SQL ] SELECT `a`.*,`u`.`userName`,`c`.`cateName`,`c`.`cateId` FROM `article` `a` INNER JOIN `cate` `c` ON `a`.`articleCate`=`c`.`cateId` INNER JOIN `user` `u` ON `a`.`ator`=`u`.`userId` WHERE  `articleId` = 25 LIMIT 1 [ RunTime:0.000762s ]
+[ sql ] [ SQL ] SELECT * FROM `aboutme` WHERE  `meId` = 1 LIMIT 1 [ RunTime:0.000684s ]
+[ sql ] [ SQL ] SELECT `articleId` FROM `article` WHERE  `articleCate` = 6  AND `articleId` > 25 ORDER BY articleId asc LIMIT 1 [ RunTime:0.000652s ]
+[ sql ] [ SQL ] SELECT `articleId` FROM `article` WHERE  `articleCate` = 6  AND `articleId` < 25 ORDER BY articleId desc LIMIT 1 [ RunTime:0.000609s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1  AND `articleCate` = 6 ORDER BY praiseClicks desc LIMIT 5 [ RunTime:0.001358s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:09:24+08:00 ] ::1 ::1 GET /blog/index/index/time.html
+[ info ] localhost/blog/index/index/time.html [运行时间：0.063365s][吞吐率：15.78req/s] [内存消耗：2,774.85kb] [文件加载：54]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'time',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/blog/article?aid=25',
+  'accept-encoding' => 'gzip, deflate, gzip, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->time[ D:\B\AppServ\www\blog\application\index\controller\Index.php ]
+[ info ] [ VIEW ] D:\B\AppServ\www\blog/application/index\view\index\time.html [ array (
+  0 => 'conf',
+  1 => 'cate',
+  2 => 'about',
+  3 => 'heatArticles',
+  4 => 'newArticles',
+  5 => 'praiseArticles',
+  6 => 'friendshiplink',
+  7 => 'tags',
+  8 => 'message',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010329s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.001028s ]
+[ sql ] [ SQL ] SELECT * FROM `config` LIMIT 1 [ RunTime:0.000463s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cate` [ RunTime:0.001179s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000666s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `aboutme` [ RunTime:0.000778s ]
+[ sql ] [ SQL ] SELECT * FROM `aboutme` WHERE  `meId` = 1 LIMIT 1 [ RunTime:0.000415s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.000766s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY articleClicks desc LIMIT 5 [ RunTime:0.000569s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY addTime desc LIMIT 5 [ RunTime:0.000618s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY praiseClicks desc LIMIT 5 [ RunTime:0.000587s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `friendshiplink` [ RunTime:0.000924s ]
+[ sql ] [ SQL ] SELECT * FROM `friendshiplink` WHERE  `status` = 1 [ RunTime:0.000316s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `articleTags` FROM `article` WHERE  `status` = 1 [ RunTime:0.000682s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.000856s ]
+[ sql ] [ SQL ] SELECT `m`.*,`u`.`userName` FROM `message` `m` INNER JOIN `user` `u` ON `u`.`userId`=`m`.`messageAtor` WHERE  `m`.`status` = 1 LIMIT 5 [ RunTime:0.000572s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000510s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:09:54+08:00 ] ::1 ::1 POST /blog/index/comment/add.html
+[ info ] localhost/blog/index/comment/add.html [运行时间：0.265419s][吞吐率：3.77req/s] [内存消耗：2,722.86kb] [文件加载：51]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'comment',
+    2 => 'add',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '18',
+  'accept' => '*/*',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://localhost/blog/article?aid=25',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+  'commentContent' => '222',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Comment->add[ D:\B\AppServ\www\blog\application\index\controller\Comment.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010907s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.001069s ]
+[ sql ] [ SQL ] SELECT * FROM `config` LIMIT 1 [ RunTime:0.000628s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cate` [ RunTime:0.000792s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000467s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `aboutme` [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `aboutme` WHERE  `meId` = 1 LIMIT 1 [ RunTime:0.000481s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.000921s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY articleClicks desc LIMIT 5 [ RunTime:0.026781s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY addTime desc LIMIT 5 [ RunTime:0.000754s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY praiseClicks desc LIMIT 5 [ RunTime:0.000675s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `friendshiplink` [ RunTime:0.000855s ]
+[ sql ] [ SQL ] SELECT * FROM `friendshiplink` WHERE  `status` = 1 [ RunTime:0.000542s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `articleTags` FROM `article` WHERE  `status` = 1 [ RunTime:0.000628s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.000746s ]
+[ sql ] [ SQL ] SELECT `m`.*,`u`.`userName` FROM `message` `m` INNER JOIN `user` `u` ON `u`.`userId`=`m`.`messageAtor` WHERE  `m`.`status` = 1 LIMIT 5 [ RunTime:0.000450s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000471s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `comment` [ RunTime:0.000836s ]
+[ sql ] [ SQL ] INSERT INTO `comment` (`commentContent` , `commentAtor`) VALUES ('222' , 1) [ RunTime:0.115143s ]
+[ sql ] [ SQL ] SELECT `c`.`commentId`,`c`.`addTime`,`u`.`userName` FROM `comment` `c` INNER JOIN `user` `u` ON `u`.`userId`=`c`.`commentAtor` WHERE  `c`.`commentAtor` = 1 ORDER BY c.addTime desc LIMIT 1 [ RunTime:0.001337s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:09:54+08:00 ] ::1 ::1 POST /blog/index/article/article
+[ info ] localhost/blog/index/article/article [运行时间：0.348972s][吞吐率：2.87req/s] [内存消耗：2,902.05kb] [文件加载：54]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'article',
+    2 => 'article',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '25',
+  'accept' => '*/*',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://localhost/blog/article?aid=25',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+  'commentContent' => '222',
+  'aid' => '25',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Article->article[ D:\B\AppServ\www\blog\application\index\controller\Article.php ]
+[ info ] [ CACHE ] INIT file
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001398s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.001575s ]
+[ sql ] [ SQL ] SELECT * FROM `config` LIMIT 1 [ RunTime:0.000617s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cate` [ RunTime:0.000823s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000542s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `aboutme` [ RunTime:0.000950s ]
+[ sql ] [ SQL ] SELECT * FROM `aboutme` WHERE  `meId` = 1 LIMIT 1 [ RunTime:0.000490s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.000875s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY articleClicks desc LIMIT 5 [ RunTime:0.000512s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY addTime desc LIMIT 5 [ RunTime:0.000598s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY praiseClicks desc LIMIT 5 [ RunTime:0.000571s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `friendshiplink` [ RunTime:0.000780s ]
+[ sql ] [ SQL ] SELECT * FROM `friendshiplink` WHERE  `status` = 1 [ RunTime:0.000373s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `articleTags` FROM `article` WHERE  `status` = 1 [ RunTime:0.000519s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.000833s ]
+[ sql ] [ SQL ] SELECT `m`.*,`u`.`userName` FROM `message` `m` INNER JOIN `user` `u` ON `u`.`userId`=`m`.`messageAtor` WHERE  `m`.`status` = 1 LIMIT 5 [ RunTime:0.000450s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000457s ]
+[ sql ] [ SQL ] UPDATE `article`  SET `articleClicks`=articleClicks+1  WHERE  `articleId` = 25 [ RunTime:0.099767s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `comment` [ RunTime:0.000988s ]
+[ sql ] [ SQL ] SELECT `c`.*,`u`.`userName` FROM `comment` `c` INNER JOIN `user` `u` ON `u`.`userId`=`c`.`commentAtor` WHERE  `c`.`status` = 1  AND `c`.`commentArticleid` = '25' ORDER BY addTime desc [ RunTime:0.000814s ]
+[ sql ] [ SQL ] SELECT `a`.*,`u`.`userName`,`c`.`cateName`,`c`.`cateId` FROM `article` `a` INNER JOIN `cate` `c` ON `a`.`articleCate`=`c`.`cateId` INNER JOIN `user` `u` ON `a`.`ator`=`u`.`userId` WHERE  `articleId` = 25 LIMIT 1 [ RunTime:0.000833s ]
+[ sql ] [ SQL ] SELECT * FROM `aboutme` WHERE  `meId` = 1 LIMIT 1 [ RunTime:0.000724s ]
+[ sql ] [ SQL ] SELECT `articleId` FROM `article` WHERE  `articleCate` = 6  AND `articleId` > 25 ORDER BY articleId asc LIMIT 1 [ RunTime:0.000650s ]
+[ sql ] [ SQL ] SELECT `articleId` FROM `article` WHERE  `articleCate` = 6  AND `articleId` < 25 ORDER BY articleId desc LIMIT 1 [ RunTime:0.000604s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1  AND `articleCate` = 6 ORDER BY praiseClicks desc LIMIT 5 [ RunTime:0.001807s ]
+[ sql ] [ SQL ] INSERT INTO `comment` (`commentAtor` , `commentArticleid` , `commentContent`) VALUES (1 , 25 , '222') [ RunTime:0.075352s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:09:58+08:00 ] ::1 ::1 POST /blog/index/comment/praise.html
+[ info ] localhost/blog/index/comment/praise.html [运行时间：0.207732s][吞吐率：4.81req/s] [内存消耗：2,780.01kb] [文件加载：54]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'comment',
+    2 => 'praise',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '14',
+  'accept' => '*/*',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://localhost/blog/article?aid=25',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+  'puser' => '1',
+  'cid' => '41',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Comment->Praise[ D:\B\AppServ\www\blog\application\index\controller\Comment.php ]
+[ info ] [ CACHE ] INIT file
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011194s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.001945s ]
+[ sql ] [ SQL ] SELECT * FROM `config` LIMIT 1 [ RunTime:0.000513s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cate` [ RunTime:0.000738s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000373s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `aboutme` [ RunTime:0.001275s ]
+[ sql ] [ SQL ] SELECT * FROM `aboutme` WHERE  `meId` = 1 LIMIT 1 [ RunTime:0.000679s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.001241s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY articleClicks desc LIMIT 5 [ RunTime:0.000893s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY addTime desc LIMIT 5 [ RunTime:0.000926s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY praiseClicks desc LIMIT 5 [ RunTime:0.000860s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `friendshiplink` [ RunTime:0.000851s ]
+[ sql ] [ SQL ] SELECT * FROM `friendshiplink` WHERE  `status` = 1 [ RunTime:0.000400s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `articleTags` FROM `article` WHERE  `status` = 1 [ RunTime:0.000441s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.000827s ]
+[ sql ] [ SQL ] SELECT `m`.*,`u`.`userName` FROM `message` `m` INNER JOIN `user` `u` ON `u`.`userId`=`m`.`messageAtor` WHERE  `m`.`status` = 1 LIMIT 5 [ RunTime:0.000407s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000519s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `comment` [ RunTime:0.000770s ]
+[ sql ] [ SQL ] SELECT `commentId`,`praise` FROM `comment` WHERE  `commentId` = 41 LIMIT 1 [ RunTime:0.000418s ]
+[ sql ] [ SQL ] UPDATE `comment`  SET `praise`=1  WHERE  `commentId` = 41 [ RunTime:0.113895s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:10:00+08:00 ] ::1 ::1 POST /blog/index/comment/praise.html
+[ info ] localhost/blog/index/comment/praise.html [运行时间：0.206574s][吞吐率：4.84req/s] [内存消耗：2,779.98kb] [文件加载：54]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'comment',
+    2 => 'praise',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '14',
+  'accept' => '*/*',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://localhost/blog/article?aid=25',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0; cpuser_1_41=1',
+)
+[ info ] [ PARAM ] array (
+  'puser' => '1',
+  'cid' => '41',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Comment->Praise[ D:\B\AppServ\www\blog\application\index\controller\Comment.php ]
+[ info ] [ CACHE ] INIT file
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001469s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.001198s ]
+[ sql ] [ SQL ] SELECT * FROM `config` LIMIT 1 [ RunTime:0.000506s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cate` [ RunTime:0.000776s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000469s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `aboutme` [ RunTime:0.000801s ]
+[ sql ] [ SQL ] SELECT * FROM `aboutme` WHERE  `meId` = 1 LIMIT 1 [ RunTime:0.000467s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.000872s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY articleClicks desc LIMIT 5 [ RunTime:0.000630s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY addTime desc LIMIT 5 [ RunTime:0.000585s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY praiseClicks desc LIMIT 5 [ RunTime:0.000568s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `friendshiplink` [ RunTime:0.000774s ]
+[ sql ] [ SQL ] SELECT * FROM `friendshiplink` WHERE  `status` = 1 [ RunTime:0.000355s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `articleTags` FROM `article` WHERE  `status` = 1 [ RunTime:0.000454s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.000909s ]
+[ sql ] [ SQL ] SELECT `m`.*,`u`.`userName` FROM `message` `m` INNER JOIN `user` `u` ON `u`.`userId`=`m`.`messageAtor` WHERE  `m`.`status` = 1 LIMIT 5 [ RunTime:0.000491s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000464s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `comment` [ RunTime:0.000726s ]
+[ sql ] [ SQL ] SELECT `commentId`,`praise` FROM `comment` WHERE  `commentId` = 41 LIMIT 1 [ RunTime:0.000388s ]
+[ sql ] [ SQL ] UPDATE `comment`  SET `praise`=0  WHERE  `commentId` = 41 [ RunTime:0.134545s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:10:05+08:00 ] ::1 ::1 GET /blog/home
+[ info ] localhost/blog/home [运行时间：0.074300s][吞吐率：13.46req/s] [内存消耗：2,936.77kb] [文件加载：55]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 'index/index/index/index',
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/blog/article?aid=25',
+  'accept-encoding' => 'gzip, deflate, gzip, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\B\AppServ\www\blog\application\index\controller\Index.php ]
+[ info ] [ VIEW ] D:\B\AppServ\www\blog/application/index\view\index\index.html [ array (
+  0 => 'conf',
+  1 => 'cate',
+  2 => 'about',
+  3 => 'heatArticles',
+  4 => 'newArticles',
+  5 => 'praiseArticles',
+  6 => 'friendshiplink',
+  7 => 'tags',
+  8 => 'message',
+  9 => 'slider',
+) ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011914s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.001355s ]
+[ sql ] [ SQL ] SELECT * FROM `config` LIMIT 1 [ RunTime:0.000645s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cate` [ RunTime:0.001076s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000540s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `aboutme` [ RunTime:0.001193s ]
+[ sql ] [ SQL ] SELECT * FROM `aboutme` WHERE  `meId` = 1 LIMIT 1 [ RunTime:0.000606s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.001133s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY articleClicks desc LIMIT 5 [ RunTime:0.000566s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY addTime desc LIMIT 5 [ RunTime:0.000661s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY praiseClicks desc LIMIT 5 [ RunTime:0.000670s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `friendshiplink` [ RunTime:0.000914s ]
+[ sql ] [ SQL ] SELECT * FROM `friendshiplink` WHERE  `status` = 1 [ RunTime:0.000497s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `articleTags` FROM `article` WHERE  `status` = 1 [ RunTime:0.000600s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.000853s ]
+[ sql ] [ SQL ] SELECT `m`.*,`u`.`userName` FROM `message` `m` INNER JOIN `user` `u` ON `u`.`userId`=`m`.`messageAtor` WHERE  `m`.`status` = 1 LIMIT 5 [ RunTime:0.000499s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000463s ]
+[ sql ] [ SQL ] SELECT `a`.*,`u`.`userName`,`c`.`cateName`,`c`.`cateId` FROM `article` `a` INNER JOIN `user` `u` ON `a`.`ator`=`u`.`userId` INNER JOIN `cate` `c` ON `a`.`articleCate`=`c`.`cateId` WHERE  `a`.`status` = 1  AND `a`.`slider` = 1 ORDER BY a.addTime asc LIMIT 5 [ RunTime:0.001403s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:10:05+08:00 ] ::1 ::1 GET /blog/index/index/time.html
+[ info ] localhost/blog/index/index/time.html [运行时间：0.064545s][吞吐率：15.49req/s] [内存消耗：2,774.70kb] [文件加载：54]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'time',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/blog/home',
+  'accept-encoding' => 'gzip, deflate, gzip, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->time[ D:\B\AppServ\www\blog\application\index\controller\Index.php ]
+[ info ] [ VIEW ] D:\B\AppServ\www\blog/application/index\view\index\time.html [ array (
+  0 => 'conf',
+  1 => 'cate',
+  2 => 'about',
+  3 => 'heatArticles',
+  4 => 'newArticles',
+  5 => 'praiseArticles',
+  6 => 'friendshiplink',
+  7 => 'tags',
+  8 => 'message',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010835s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.001483s ]
+[ sql ] [ SQL ] SELECT * FROM `config` LIMIT 1 [ RunTime:0.000530s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cate` [ RunTime:0.000961s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000478s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `aboutme` [ RunTime:0.000815s ]
+[ sql ] [ SQL ] SELECT * FROM `aboutme` WHERE  `meId` = 1 LIMIT 1 [ RunTime:0.000488s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.000804s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY articleClicks desc LIMIT 5 [ RunTime:0.000632s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY addTime desc LIMIT 5 [ RunTime:0.000890s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY praiseClicks desc LIMIT 5 [ RunTime:0.000731s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `friendshiplink` [ RunTime:0.000754s ]
+[ sql ] [ SQL ] SELECT * FROM `friendshiplink` WHERE  `status` = 1 [ RunTime:0.000460s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `articleTags` FROM `article` WHERE  `status` = 1 [ RunTime:0.000539s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.001324s ]
+[ sql ] [ SQL ] SELECT `m`.*,`u`.`userName` FROM `message` `m` INNER JOIN `user` `u` ON `u`.`userId`=`m`.`messageAtor` WHERE  `m`.`status` = 1 LIMIT 5 [ RunTime:0.000519s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000494s ]
+---------------------------------------------------------------
+[ 2018-04-20T15:10:05+08:00 ] ::1 ::1 GET /blog/index/index/flow?page=1
+[ info ] localhost/blog/index/index/flow?page=1 [运行时间：0.076525s][吞吐率：13.07req/s] [内存消耗：3,131.66kb] [文件加载：55]
+[ info ] [ LANG ] D:\B\AppServ\www\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'flow',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+  'accept' => '*/*',
+  'referer' => 'http://localhost/blog/home',
+  'accept-encoding' => 'gzip, deflate, gzip, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=9huqsm8lid8kd9ceko1irfrg00; ip_0000=0.0.0.0',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->flow[ D:\B\AppServ\www\blog\application\index\controller\Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002434s ] mysql:host=localhost;dbname=blog;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `config` [ RunTime:0.001451s ]
+[ sql ] [ SQL ] SELECT * FROM `config` LIMIT 1 [ RunTime:0.000501s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cate` [ RunTime:0.000810s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000660s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `aboutme` [ RunTime:0.001161s ]
+[ sql ] [ SQL ] SELECT * FROM `aboutme` WHERE  `meId` = 1 LIMIT 1 [ RunTime:0.000596s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `article` [ RunTime:0.001149s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY articleClicks desc LIMIT 5 [ RunTime:0.000801s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY addTime desc LIMIT 5 [ RunTime:0.000714s ]
+[ sql ] [ SQL ] SELECT * FROM `article` WHERE  `status` = 1 ORDER BY praiseClicks desc LIMIT 5 [ RunTime:0.000771s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `friendshiplink` [ RunTime:0.001027s ]
+[ sql ] [ SQL ] SELECT * FROM `friendshiplink` WHERE  `status` = 1 [ RunTime:0.000396s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `articleTags` FROM `article` WHERE  `status` = 1 [ RunTime:0.000426s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.000707s ]
+[ sql ] [ SQL ] SELECT `m`.*,`u`.`userName` FROM `message` `m` INNER JOIN `user` `u` ON `u`.`userId`=`m`.`messageAtor` WHERE  `m`.`status` = 1 LIMIT 5 [ RunTime:0.000339s ]
+[ sql ] [ SQL ] SELECT * FROM `cate` WHERE  `status` = 1 [ RunTime:0.000312s ]
+[ sql ] [ SQL ] SELECT `a`.*,`u`.`userName`,`c`.`cateName`,`c`.`cateId` FROM `article` `a` INNER JOIN `user` `u` ON `a`.`ator`=`u`.`userId` INNER JOIN `cate` `c` ON `a`.`articleCate`=`c`.`cateId` WHERE  `a`.`status` = 1 LIMIT 0,13 [ RunTime:0.000985s ]

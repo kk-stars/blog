@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>修改栏目 - Babysbreath博客管理系统</title>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__admin/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__admin/css/style.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__admin/css/font-awesome.min.css">
+<link rel="apple-touch-icon-precomposed" href="__PUBLIC__admin/images/icon/icon.png">
+<link rel="shortcut icon" href="__PUBLIC__admin/images/icon/favicon.ico">
+<script src="__PUBLIC__admin/js/jquery-2.1.4.min.js"></script>
+<!--[if gte IE 9]>
+  <script src="__PUBLIC__admin/js/jquery-1.11.1.min.js" type="text/javascript"></script>
+  <script src="__PUBLIC__admin/js/html5shiv.min.js" type="text/javascript"></script>
+  <script src="__PUBLIC__admin/js/respond.min.js" type="text/javascript"></script>
+  <script src="__PUBLIC__admin/js/selectivizr-min.js" type="text/javascript"></script>
+<![endif]-->
+<!--[if lt IE 9]>
+  <script>window.location.href='upgrade-browser.html';</script>
+<![endif]-->
+</head>
+
+<body class="user-select">
+<section class="container-fluid">
+  {include file="Public/header"}
+  <div class="row">
+  {include file="Public/aside"}
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-lg-10 col-md-offset-2 main" id="main">
+      <h1 class="page-header">修改栏目</h1>
+      <form action="{:url('update/updateCategory')}" method="post">
+      	<input type="hidden" name="cateId" value="{$cate.cateId}" />
+        <div class="form-group">
+          <label for="category-name">栏目名称</label>
+          <input type="text" id="category-name" name="cateName" value="{$cate.cateName}" class="form-control" placeholder="在此处输入栏目名称" required autocomplete="off">
+          <span class="prompt-text">这将是它在站点上显示的名字。</span> </div>
+        <div class="form-group">
+          <label for="category-alias">栏目别名</label>
+          <input type="text" id="category-alias" name="cateAlias" value="{$cate.cateAlias}" class="form-control" placeholder="在此处输入栏目别名" required autocomplete="off">
+          <span class="prompt-text">“别名”是在URL中使用的别称，它可以令URL更美观。通常使用小写，只能包含字母，数字和连字符（-）。</span> </div>
+        <div class="form-group">
+          <label for="category-fname">父节点</label>
+          <select id="category-fname" class="form-control" name="cateFather">
+            <option value="0" selected>无</option>
+            {volist name="cates" id="c"}
+            	{if condition="$c['cateId'] neq $cate['cateFather']"}
+            		{if condition="$c['cateId'] neq $cate['cateId']"}
+            			<option value="{$c.cateId}">{if condition="$c['level'] neq 0"}|{/if}<?php echo str_repeat(" —— ",$c['level']);?>{$c.cateName}</option>
+            		{else /}
+            		{/if}
+            	{else /}
+            		<option value="{$c.cateId}" selected>{$c.cateName}</option>
+            	{/if}
+            {/volist}
+          </select>
+          <span class="prompt-text">栏目是有层级关系的，您可以有一个“音乐”分类目录，在这个目录下可以有叫做“流行”和“古典”的子目录。</span> </div>
+        <div class="form-group">
+          <label for="category-keywords">关键字</label>
+          <input type="text" id="category-keywords" name="cateKeywords" value="{$cate.cateKeywords}" class="form-control" placeholder="在此处输入栏目关键字" autocomplete="off">
+          <span class="prompt-text">关键字会出现在网页的keywords属性中。</span> </div>
+        <div class="form-group">
+          <label for="category-describe">描述</label>
+          <textarea class="form-control" id="category-describe" name="cateDescription" rows="4" autocomplete="off">{$cate.cateDescription}</textarea>
+          <span class="prompt-text">描述会出现在网页的description属性中。</span> </div>
+        <button class="btn btn-primary" type="submit">保存修改</button>
+      </form>
+    </div>
+  </div>
+</section>
+<!--个人信息模态框-->
+  {include file="Public/info"}
+<!--个人登录记录模态框-->
+  {include file="Public/loginRecord"}
+<!--微信二维码模态框-->
+  {include file="Public/wechat"}
+<!--提示模态框-->
+  {include file="Public/prompt"}
+<!--右键菜单列表-->
+<div id="rightClickMenu">
+  <ul class="list-group rightClickMenuList">
+    <li class="list-group-item disabled">欢迎访问Babysbreath博客</li>
+    <li class="list-group-item"><span>IP：</span>172.16.10.129</li>
+    <li class="list-group-item"><span>地址：</span>河南省郑州市</li>
+    <li class="list-group-item"><span>系统：</span>Windows10 </li>
+    <li class="list-group-item"><span>浏览器：</span>Chrome47</li>
+  </ul>
+</div>
+<script src="__PUBLIC__admin/js/bootstrap.min.js"></script>
+<script src="__PUBLIC__admin/js/admin-scripts.js"></script>
+<script>
+function loginInfo(aid){
+	$.get('__URL__/info',{'adminId':aid},function(data){
+		var d = JSON.parse(data);
+		document.getElementById('adminId').value = aid;
+		document.getElementById('adminName').value = d.adminName;
+		document.getElementById('loginName').value = d.loginName;
+		document.getElementById('infoContactNumber').value = d.contactNumber;
+	});
+}
+
+function submitInfo(){
+	var aAdmId = $('#adminId').val();
+	var aAdmName = $('#adminName').val();
+	var aLogName = $('#loginName').val();
+	var aCttNum = $('#infoContactNumber').val();
+	var aAdmPwd = $('#oldPassword').val();
+	var aLogPwd = $('#loginPassword').val();
+	var aNewPwd = $('#newPassword').val();
+
+	var phoneReg = /(^1[3|4|5|7|8]\d{9}$)|(^09\d{8}$)/;
+	//电话
+	var phone = $.trim(aCttNum);
+	if (!phoneReg.test(phone)) {
+	  alert('请输入有效的手机号码！');
+	  return false;
+	}
+
+	if(aAdmPwd != '' && aLogPwd != '' && aNewPwd != '' && aLogPwd == aNewPwd){
+		$.post('__URL__/info',{'adminId':aAdmId,'adminName':aAdmName,'loginName':aLogName,'contactNumber':aCttNum,'oldPassword':aAdmPwd,'loginPassword':aLogPwd,'newPassword':aNewPwd},function(info){
+			var d = JSON.parse(info);
+			if(d.code == 1){
+				$('#adminModalLabel').html('信息提示');
+				$('#upAdminBody').html(d.message);
+				$('#upadmin').modal('show');
+				$('#seeUserInfo').modal('hide');
+				setTimeout('location.href = "{:url(\'admin/Login/login\')}";',2000);
+			}
+		});
+	}else if(aAdmPwd == '' || aLogPwd == '' && aNewPwd == ''){
+		$.post('__URL__/info',{'adminId':aAdmId,'adminName':aAdmName,'loginName':aLogName,'contactNumber':aCttNum,'oldPassword':0,'loginPassword':0,'newPassword':0},function(info){
+			var d = JSON.parse(info);
+			if(d.code == 1){
+				$('#adminModalLabel').html('信息提示');
+				$('#upAdminBody').html(d.message);
+				$('#upadmin').modal('show');
+				$('#seeUserInfo').modal('hide');
+				setTimeout('location.href = "{:url(\'admin/Login/login\')}";',2000);
+			}
+		});
+	}else{
+   	  alert('密码错误!');
+   	  return false;
+	}
+}
+</script>
+</body>
+</html>

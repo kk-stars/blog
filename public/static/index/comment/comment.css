@@ -1,0 +1,144 @@
+body{
+	margin:0;
+	padding:0;
+	font-family:"Microsoft Yahei","Hiragino Sans GB","Helvetica Neue",Helvetica,tahoma,arial,"WenQuanYi Micro Hei",Verdana,sans-serif,"\5B8B\4F53";
+/* 	text-align:center; */
+}
+.big{
+	margin:0 auto;
+	*background-color:#FFF;
+	border-bottom:1px solid #c7c7c7;
+}
+.top{
+	border-radius: 10px 10px 0 0;
+	width:100%;
+	height:50px;
+	background-color:#fff;
+	border-bottom:1px solid #86d1ef;
+}
+.bottom{
+	width:100%;
+	height:200px;
+	background-color:#F5FAFA;
+	margin-top:15px;
+	border:1px solid #D8D8D8;
+	border-radius:5px;
+	margin-bottom: 10px;
+}
+.woyao{
+	border-radius: 10px 10px 0 0;
+	position:absolute;
+	width:100px;
+	height:40px;
+	background-color:#0F3;
+	margin-top:10px;
+	margin-left:20px;
+	border-top:1px solid #86d1ef;
+	border-left:1px solid #86d1ef;
+	border-right:1px solid #86d1ef;
+	border-bottom:1px solid #FFF;
+	background-image: linear-gradient(to bottom,#f5fafa 0,#ffffff 90%);
+	text-align:center;
+	font-weight:bold;
+	line-height:40px;
+}
+.log{
+	margin-top:15px;
+	margin-left:10px;
+	float:right;
+}
+.textarea{
+	padding-left:10px;
+	padding-right:10px;
+	padding-top:5px;
+	width:98%;
+	height:130px;
+	border-radius:5px;
+	margin-top:10px;
+	outline:none;
+	font-family:"Microsoft Yahei","Hiragino Sans GB","Helvetica Neue",Helvetica,tahoma,arial,"WenQuanYi Micro Hei",Verdana,sans-serif,"\5B8B\4F53";
+}
+.submit{
+	margin-top:10px;
+	margin-left:10px;
+	width:90px;
+	height:35px;
+	cursor:pointer;
+	outline:none;
+	float:left;
+	border-radius: 5px;
+	background-color: rgba(134, 209, 239, 0.62);
+    border: 1px solid #f5fafa;
+	font-family:"Microsoft Yahei","Hiragino Sans GB","Helvetica Neue",Helvetica,tahoma,arial,"WenQuanYi Micro Hei",Verdana,sans-serif,"\5B8B\4F53";
+	transition:background-color .5s linear;
+}
+.submit:hover{
+	background-color:#86d1ef;
+}
+.login{
+	margin-right: 10px;
+	width:90px;
+	height:35px;
+	background-color:#b2e4e4;
+	border-radius:5px;
+	border:none;
+	cursor:pointer;
+	outline:none;
+	text-align:center;
+	margin-top:-5px;
+	transition:background-color .7s linear;
+	font-family:"Microsoft Yahei","Hiragino Sans GB","Helvetica Neue",Helvetica,tahoma,arial,"WenQuanYi Micro Hei",Verdana,sans-serif,"\5B8B\4F53";
+}
+.login:hover{
+	background-color:#5ee1e1;
+}
+.register{
+	width:70px;
+	height:30px;
+	background-color:#0CF;
+	border-radius:5px;
+	border:none;
+	cursor:pointer;
+	outline:none;
+}
+.register:hover{
+	background-color:#44A2FF;
+	color:#fff;
+}
+.area{
+	text-align:center;
+}
+.name{
+	border-radius: 5px;
+    border: 1px solid #dddddd;
+    height: 25px;
+	outline:none;
+}
+.pwd{
+	border-radius: 5px;
+    border: 1px solid #dddddd;
+    height: 25px;
+	outline:none;
+}
+.content{
+/* 	height:45px;
+    width: 468px;	 */
+	margin-top: 15px;
+}
+.select{
+	float:left;
+	margin-top:10px;
+	width:600px;
+    height: 25px;
+	cursor:pointer;
+	outline:none;
+	border-radius: 5px;
+    border: 1px solid #dddddd;
+	font-family:"Microsoft Yahei","Hiragino Sans GB","Helvetica Neue",Helvetica,tahoma,arial,"WenQuanYi Micro Hei",Verdana,sans-serif,"\5B8B\4F53";
+}
+.obiect{
+	float:left;
+	margin-top:10px;
+	margin-left:10px;
+	line-height:25px;
+}
